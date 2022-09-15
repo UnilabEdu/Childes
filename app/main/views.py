@@ -5,7 +5,7 @@ from app.extensions import login_manager
 from app.main.models import User
 # Create blueprint
 
-users_blueprint = Blueprint('users',
+users_blueprint = Blueprint('',
                             __name__,
                             template_folder='templates')
                             
@@ -18,17 +18,16 @@ def load_user(user_id):
     return User.query.get(user_id)
 
 # Simple index page route
-@users_blueprint.route('/')
+
 @login_required
 def index():
     return 'hello world'
 
-@users_blueprint.route('/login', methods=['GET', 'POST'])
 def login():
     return 'login test'
 
 # Logout route
-@users_blueprint.route('/logout')
+
 @login_required
 def logout():
     logout_user()
