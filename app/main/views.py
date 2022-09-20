@@ -2,10 +2,10 @@
 from flask import redirect, render_template, request, url_for, Blueprint
 from flask_login import login_required, login_user, logout_user, current_user
 from app.extensions import login_manager
-from app.main.models import User
+from app.main.models import User, Role, UserRoles
 # Create blueprint
 
-users_blueprint = Blueprint('',
+user_blueprint = Blueprint('',
                             __name__,
                             template_folder='templates')
                             
@@ -24,9 +24,12 @@ def index():
     return 'hello world'
 
 def login():
-    return 'login test'
-
+    # first_user = User.query.first()
+    # login_user(first_user)
+    return 'login'
 # Logout route
+
+
 
 @login_required
 def logout():
