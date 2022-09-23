@@ -1,7 +1,7 @@
 
 from flask import Flask
 from app.extensions import db, migrate, login_manager, csrf, admin
-from app.admin_panel.views import UserView, FileAdmina, LogoutView, LoginView
+from app.admin_panel.views import UserView, LogoutView, LoginView
 from app.main.models import Role, User
 from flask_admin.contrib.fileadmin import FileAdmin
 from app.main.views import index, login, logout, user_blueprint
@@ -47,7 +47,6 @@ def register_blueprints(application):
     
 def register_admin(app):
     admin.add_view(UserView(User, db.session, name='მომხმარებელი', endpoint='users', category='მომხმარებლები'))
-    admin.add_view(FileAdmina(uploads_folder_in_static_folder, '/uploads', name='სტატიკური ფაილები'))
     # add log out view to admin panel
     admin.add_view(LogoutView(User, db.session, name='გასვლა'))
     # if user is not logged in redirect to login page

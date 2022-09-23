@@ -1,4 +1,3 @@
-
 from flask import redirect, render_template, request, url_for, Blueprint
 from flask_login import login_required, login_user, logout_user, current_user
 from app.extensions import login_manager
@@ -24,9 +23,9 @@ def index():
     return 'hello world'
 
 def login():
-    # first_user = User.query.first()
-    # login_user(first_user)
-    return 'login'
+    first_user = User.query.first()
+    login_user(first_user)
+    return 'logged in'
 # Logout route
 
 

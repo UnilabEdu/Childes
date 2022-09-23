@@ -22,16 +22,6 @@ class UserView(ModelView):
     edit_modal = True
     column_display_all_relations = True
 
-class FileAdmina(FileAdmin):
-    def is_accessible(self):
-        if current_user.is_authenticated:
-            return current_user.is_admin()
-        return False
-    
-    def inaccessible_callback(self, name, **kwargs):
-        # redirect to login page if user doesn't have access
-        return redirect(url_for('login'))
-    
 
 class LogoutView(ModelView):
     def is_accessible(self):
