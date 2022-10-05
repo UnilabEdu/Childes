@@ -67,3 +67,52 @@ class UserRoles(db.Model):
     role_id = db.Column(db.Integer, db.ForeignKey('role.id'))
 
 
+class File(db.Model):
+    __tablename__ = 'files'
+    
+    
+    
+    id = db.Column(db.Integer, primary_key=True)
+    file_name = db.Column(db.String(80), unique=True, nullable=False)
+    yt_link = db.Column(db.String(80), unique=True, nullable=False)
+
+    
+    
+    def create(self,commit=True, **kwargs):
+        for key, value in kwargs.items():
+            setattr(self, key, value)
+            
+        if commit:
+            db.session.add(self)
+            db.session.commit()
+            
+            
+    # create method already_exists with file_name
+    @classmethod
+    def already_exists(cls, file_name):
+        return cls.query.filter_by(file_name=file_name).first() is not None 
+
+    @classmethod
+    def already_exists_yt(cls, yt_link):
+        return cls.query.filter_by(yt_link=yt_link).first() is not None
+    
+    @staticmethod
+    def get_by_name(name):
+        return File.query.filter_by(file_name=name).first()
+    
+    @classmethod
+    def update(cls, id, **kwargs):
+        file = cls.get_by_id(id)
+        for key, value in kwargs.items():
+            setattr(file, key, value)
+        db.session.commit()
+        return file
+
+    @classmethod
+    def delete(cls):
+        db.session.delete(cls)
+        db.session.commit()
+        return cls
+
+    def __repr__(self):
+        return self.file_name
