@@ -4,7 +4,8 @@ from wtforms.validators import DataRequired, ValidationError, Email, EqualTo, Le
 from flask_wtf.file import FileField as FF, FileAllowed, FileRequired
 from app.main.models import File
 class UploadForm(FlaskForm):
-    file = FF('ფაილი', validators=[FileRequired()],
+    # ფაილი უნდა იყოს .cha გაფართოების'
+    file = FF('ფაილი', validators=[FileRequired(), FileAllowed(['cha'], 'ფაილი უნდა იყოს .cha გაფართოების')],
                      render_kw={"class": "form-control form-control-lg","id":"formFileLg"})
     yt_link = StringField('Youtube ვიდეოს მისამართი',
                           render_kw={"placeholder": "Youtube ვიდეოს მისამართი"
@@ -24,15 +25,17 @@ class UploadForm(FlaskForm):
             raise ValidationError('ეს ფაილი უკვე ატვირთულია')
         return True
     
-    def validate_file_yt(self, yt_link):
-        print(yt_link.data)
-        if File.already_exists_yt(yt_link.data):
-            raise ValidationError('ვიდეო უკვე არსებობს')
-        return True
-    # def validate_file(self, file):
-    #     if file.data:
-    #         filename = file.data.filename
-    #         if filename[-4:] != '.cha': 
-    #             raise ValidationError('ფაილი უნდა იყოს .cha გაფართოების')
+    # def validate_file_yt(self, yt_link):
+    #     print(yt_link.data)
+    #     if File.already_exists_yt(yt_link.data):
+    #         raise ValidationError('ვიდეო უკვე არსებობს')
     #     return True
+    
+    #cha files allowed
+    def validate_file(self, file):
+        if file.data:
+            filename = file.data.filename
+            if filename[-4:] != '.cha': 
+                raise ValidationError('ფაილი უნდა იყოს .cha გაფართოების')
+        return True
     
