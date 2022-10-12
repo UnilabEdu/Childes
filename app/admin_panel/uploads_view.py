@@ -3,11 +3,11 @@ from app.admin_panel.forms import UploadForm
 from werkzeug.utils import secure_filename
 from app.main.models import File
 from flask_login import current_user
-from app.main.views import user_blueprint
+from app.main.views import user_blueprint, uploads_folder
 import os
 from app.config import basedir, STATI_FOLDER
 # static folder from app/static/
-
+statics_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'front', 'css')
 
 ADMIN_PANEL_FOLDER = os.path.join(basedir, 'admin_panel')
 
@@ -24,15 +24,53 @@ def upload_file():
                 if form.validate_on_submit():
                     try:
                         f = form.file.data
-                        # split name -> example.png result example 
-                        file_name = f.filename.split('.')[0]
-                        f.save(os.path.join(
-                            STATI_FOLDER, 'uploads', secure_filename(f.filename)))
-                        print(file_name,'app/static/uploads/'+f.filename,form.yt_link.data)
-                        file_model = File(file_name=f.filename, yt_link=form.yt_link.data)
-                        file_model.create()
-                        flash('File Saved', 'success')
-                        return redirect(url_for('admin_upload_bp.upload_file'))
+                        yt_link = form.yt_link.data
+                        print(f)
+                        # if file already exists in database redirect file upload page
+                        check_file = File.already_exists(f.filename) or File.already_exists_yt(yt_link)
+                        print(File.already_exists(f.filename), File.already_exists_yt(yt_link))
+                        if not check_file:
+                            if 'MAT' in f.filename:
+                                # create folder for MAT if does not exists in uploads_folder /cha/MAT files
+                                # then save file in MAT folder
+                                mat_folder = os.path.join(uploads_folder, 'cha', 'MAT')
+                                print(os.path.exists(mat_folder),mat_folder)
+                                if not os.path.exists(mat_folder):
+                                    os.makedirs(mat_folder)
+                                filename = secure_filename(f.filename)
+                                f.save(os.path.join(mat_folder, filename))
+                                file_model = File(file_name=filename, yt_link=form.yt_link.data)
+                                file_model.create()
+                            if 'ALE' in f.filename:
+                                ale_folder = os.path.join(uploads_folder, 'cha', 'ALE')
+                                if not os.path.exists(ale_folder):
+                                    os.makedirs(ale_folder)
+                                filename = secure_filename(f.filename)
+                                f.save(os.path.join(ale_folder, filename))
+                                file_model = File(file_name=filename, yt_link=form.yt_link.data)
+                                file_model.create()
+                            if 'GAB' in f.filename:
+                                gab_folder = os.path.join(uploads_folder, 'cha', 'GAB')
+                                if not os.path.exists(gab_folder):
+                                    os.makedirs(gab_folder)
+                                filename = secure_filename(f.filename)
+                                f.save(os.path.join(gab_folder, filename))
+                                file_model = File(file_name=filename, yt_link=form.yt_link.data)
+                                file_model.create()
+                            if 'ANA' in f.filename:
+                                ana_folder = os.path.join(uploads_folder, 'cha', 'ANA')
+                                if not os.path.exists(ana_folder):
+                                    os.makedirs(ana_folder)
+                                filename = secure_filename(f.filename)
+                                f.save(os.path.join(ana_folder, filename))
+                                file_model = File(file_name=filename, yt_link=form.yt_link.data)
+                                file_model.create()
+                            
+                            flash('ფაილი აიტვირთა წარმატებით!', 'success')
+                            return redirect(url_for('admin_upload_bp.upload_file'))
+                        else:
+                            flash('ეს ფაილი ან იუთიბის მისამართი უკვე არსებობს')
+                            return redirect(url_for('admin_upload_bp.upload_file'))
                     except Exception as e:
                         flash('File not saved', 'danger')
                         print(e)

@@ -22,7 +22,18 @@
         <!--<input class="form-control form-control-lg" id="formFileLg" type="file">-->
     </div>
     {{ render_field(form.submit) }}
-        
+    {% with messages = get_flashed_messages() %}
+          {% if messages %}
+          <div class="alert alert-danger" role="alert" class="alert-message" style="width:30%; margin-left:35%;margin-top:3%;">
+            <ul class=flashes>
+            {% for message in messages %}
+              <li>{{ message }}</li>
+            {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+  
+        {% endwith %}
     </form>
 </body>
 </html>
