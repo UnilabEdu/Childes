@@ -1,0 +1,63 @@
+{% extends "main.html" %}
+{% block content %}
+        <!-- main -->
+        <main class="main">
+          <div class="main__wrapper">
+            <p class="auth-para">
+              პაროლის აღსადგენად გთხოვთ, მიუთითოთ თქვენი რეგისტრირებული
+              ელ-ფოსტა, სადაც მიიღებთ პაროლის გნაახლების ლინკს.
+            </p>
+            <form action="{{ url_for('user_blueprint.reset_password') }}" class="main__form flex-column" id="reset-psw" autocomplete="off" method=post>
+              {{ form.hidden_tag() }}
+              <div class="main__form-field flex-column">
+                <label for="email">ელ-ფოსტა:</label>
+                <!-- <input
+                  type="email"
+                  id="psw-reset-email"
+                  placeholder="example@email.ge"
+                  required
+                /> -->
+                {{ form.email(id="psw-reset-email", placeholder="example@gmail.com")}}
+              </div>
+              <input type="submit" value="პაროლის აღდგენა" />
+              <span class="input-error" id="reset-psw-error">** ელ-ფოსტა არასწორია, გთხოვთ მიუთითოთ სწორი მისამართი.</span>
+              <span class="input-success" id="reset-psw-success">
+                <img src="../images/success.png" alt="success">
+                <p>შეტყობინება გაიგზავნა წარმატებით, პაროლის აღდგენის ლინკს მიიღებთ მეილზე.</p>
+              </span>
+            </form>
+          </div>
+        </main>
+        <!-- aside -->
+        <aside class="aside">
+          <div class="aside__wrapper">
+            <div class="aside__title flex-row">
+              <a href="#">childes</a>
+              <span>>></span>
+            </div>
+            <ul>
+              <li>ქართული</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </div>
+    <dialog class="modal flex-column">
+      <div class="modal__icons">
+        <div class="modal__info">
+          <img src="{{url_for('user_blueprint.static',filename='images/modal-info.png')}}" alt="info">
+        </div>
+        <div class="modal__close" onclick="closeModal(modal)">
+          <img src="{{url_for('user_blueprint.static',filename='images/x-circle.png')}}" alt="close">
+        </div>
+      </div>
+      <p>ძვირფასო მომხმარებელო,<br>
+         ვებსაიტის გამოყენება რეკომენდებულია კომპიუტერიდან.
+      </p>
+      <button onclick="closeModal(modal)">გასაგებია</button>
+  </dialog>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/reset-psw.js"></script>
+    <script src="../js/modal.js"></script>
+{% endblock %}
