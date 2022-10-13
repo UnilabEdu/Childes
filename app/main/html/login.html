@@ -1,0 +1,75 @@
+{% extends "main.html" %}
+{% block content %}
+
+  <main class="main">
+      <div class="main__wrapper">
+          <p class="auth-para">სისტემაში შესასვლელად გთხოვთ, გაიაროთ ავტორიზაცია</p>
+          <!-- {% from "_formhelpers.html" import render_field %} -->
+          {% from "_formhelpers.html" import render_field %}
+          <form action="{{ url_for('user_blueprint.login') }}" class="main__form flex-column" autocomplete="off" method=post>
+          <!-- input hidden value csrf_token -->
+          {{ form.hidden_tag() }}
+              <div class="main__form-field flex-column">
+                  <label for="email">ელ-ფოსტა:</label>
+                  {{ render_field(form.email) }}
+              </div>
+              <div class="main__form-field flex-column">
+                  <label for="password">პაროლი:</label>
+                  {{ render_field(form.password) }}
+                  <button class="hide-password flex-row" type="button" onclick="showPsw(psw, pswIcon, eye='{{url_for('user_blueprint.static',filename='images/eye.png')}}',eyeoff='{{url_for('user_blueprint.static',filename='images/eye-off.png')}}')">
+                    <img src="{{url_for('user_blueprint.static',filename='images/eye.png')}}" alt="hide-password" id="show-psw-icon">
+                  </button>
+              </div>
+              <div class="main__form-field flex-row">
+                <div class="flex-row">
+                  <input type="checkbox" id="remember-user">
+                  <label for="remember-user">მომხმარებლის დამახსოვრება</label>
+                </div>
+                <a href="{{ url_for('user_blueprint.reset_password') }}">პაროლის აღდგენა</a>
+              </div>
+              {{ render_field(form.submit) }}
+              {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                  <ul class=flashes>
+                  {% for message in messages %}
+                    <span>{{message}}</span>
+                  {% endfor %}
+                  </ul>
+                {% endif %}
+              {% endwith %}
+     
+              
+          </form>
+      </div>
+  </main>
+  <!-- aside -->
+  <aside class="aside">
+    <div class="aside__wrapper">
+      <div class="aside__title flex-row">
+        <a href="../index.html" class="active">childes</a>
+        <span>>></span>
+      </div>
+      <ul>
+        <li>ქართული</li>
+      </ul>
+    </div>
+  </aside>
+  </div>
+  </div>
+  <dialog class="modal flex-column">
+    <div class="modal__icons">
+      <div class="modal__info">
+        <img src="{{url_for('user_blueprint.static',filename='images/modal-info.png')}}" alt="info">
+      </div>
+      <div class="modal__close" onclick="closeModal(modal)">
+        <img src="{{url_for('user_blueprint.static',filename='images/x-circle.png')}}" alt="close">
+      </div>
+    </div>
+    <p>ძვირფასო მომხმარებელო,<br>
+      ვებსაიტის გამოყენება რეკომენდებულია კომპიუტერიდან.
+    </p>
+    <button onclick="closeModal(modal)">გასაგებია</button>
+  </dialog>
+
+{% endblock content %}
+

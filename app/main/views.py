@@ -3,22 +3,12 @@
 from flask import redirect, render_template, request, url_for, Blueprint,flash
 from flask_login import login_required, login_user, logout_user, current_user
 from app.extensions import login_manager, mail
-from app.config import basedir, STATI_FOLDER
+from app.config import basedir, STATI_FOLDER, uploads_folder, main_statics_folder as statics_folder, main_template_folder as template_folder
 from app.main.models import User, Role, UserRoles, AboutPage, File
 from app.main.forms import LoginForm, ResetForm
 from flask_mail import Message
 import os
 import jwt
-
-uploads_folder = os.path.join(basedir, 'uploads')
-#print(os.path.exists(uploads_folder), uploads_folder)
-
-# find css fold in app>main>front>css 
-statics_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'front')
-#print(os.path.exists(statics_folder))
-
-# find template fold in app>main>front>html
-template_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'front', 'html')
 
 
 # Create blueprint
@@ -41,14 +31,10 @@ def load_user(user_id):
     # this function is called to load a user given an ID
     return User.query.get(user_id)
 
-# Simple index page route
-@user_blueprint.route('/')
-@login_required
-def home():
-    #Role.create_roles()
-    return redirect(url_for('user_blueprint.index'))
+
 
 @login_required
+@user_blueprint.route('/')
 def index():
     about = AboutPage.get_by_id(1)
     return render_template('index.html', about=about)
@@ -58,12 +44,9 @@ def index():
 #     return 'roles created'
 
 
-@user_blueprint.route('/childes/geo/ale')
-@login_required
-def ale():
-    return 'ale'
 
-@user_blueprint.route('/childes/geo/<string:child_name>')
+@user_blueprint.route('/<string:child_name>')
+@login_required
 def child(child_name):
     #mat_folder = os.path.join(STATI_FOLDER, 'uploads', 'cha', 'MAT')
     #print(os.listdir(mat_folder))
@@ -76,7 +59,8 @@ def child(child_name):
     return redirect(url_for('user_blueprint.child_files', file=files[0].file_name, child_name=child_name))
 
 
-@user_blueprint.route('/childes/geo/<string:child_name>/<string:file>')
+@user_blueprint.route('/<string:child_name>/<string:file>')
+@login_required
 def child_files(child_name, file):
     child_files = File.query.filter(File.file_name.like(f'%{child_name}%')).all()
     child_files_with_file_name = File.query.filter(File.file_name.like(f'%{file}%')).first()
@@ -87,7 +71,7 @@ def child_files(child_name, file):
     
     #stripped_filename = file.split('.')[0]
     print(child_files_with_file_name.file_name.strip(child_name).strip('.cha'))
-    current_url = f"/childes/geo/{child_name}/{child_files_with_file_name.file_name.strip(child_name).strip('.cha')}"
+    current_url = f"/{child_name}/{child_files_with_file_name.file_name.strip(child_name).strip('.cha')}"
 
     # find file with file name in static>uploads>cha>child_name
     cha_file = os.path.join(uploads_folder, 'cha', child_name.upper())
@@ -138,78 +122,44 @@ def child_files(child_name, file):
 
 
 
-@user_blueprint.route('/childes/about')
+@user_blueprint.route('/about')
 def about():
     about = AboutPage.get_by_id(1)
     return render_template('index.html', about=about)
 
-@user_blueprint.route('/childes/<string:file_name>')
+@user_blueprint.route('/cha/<string:file_name>')
+@login_required
 def file(file_name):
-    # get file from database with file_name then return it to the user
-    print(file_name)
+
     file_n = file_name
     file = File.query.filter_by(file_name=file_n).first()
     if not file:
         flash('არ არსებობს ეს ფაილი')
         return redirect(url_for('user_blueprint.index'))
-    if 'MAT' in file_name:
-        cha_file_in_mat_folder = os.path.join(uploads_folder, 'cha', 'MAT')
-        file = os.path.join(cha_file_in_mat_folder, file_n)
-        # read with line by line
-        file_data = ''
-        if not os.path.exists(file):
-            flash('მოხდა სეცდომა ფაილის გახსნასთან დაკავშირებით!')
-            return redirect(url_for('user_blueprint.index'))
-        with open(file, 'r') as f:
-            lines = f.readlines()
-            for line in lines:
-                file_data += line + '<br>'
+    
+    # stripping file name for having only child name
+    ten_number = [i for i in range(0, 10)]
+    for num in ten_number:
+        file_name = file_name.replace(str(num), '')
+    child_file_name = file_name.replace('.cha', '')
+    
+    cha_file_in_mat_folder = os.path.join(uploads_folder, 'cha', f'{child_file_name}')
 
-        return file_data
-    if 'GAB' in file_name:
-        cha_file_in_gab_folder = os.path.join(uploads_folder, 'cha', 'GAB')
-        file = os.path.join(cha_file_in_gab_folder, file_n)
-        # read with line by line
-        file_data = ''
-        if not os.path.exists(file):
-            flash('მოხდა სეცდომა ფაილის გახსნასთან დაკავშირებით!')
-            return redirect(url_for('user_blueprint.index'))
-        with open(file, 'r') as f:
-            lines = f.readlines()
-            for line in lines:
-                file_data += line + '<br>'
+    file = os.path.join(cha_file_in_mat_folder, file_n)
 
-        return file_data
-    if "ANA" in file_name:
-        cha_file_in_ana_folder = os.path.join(uploads_folder, 'cha', 'ANA')
-        file = os.path.join(cha_file_in_ana_folder, file_n)
-        # read with line by line
-        file_data = ''
-        if not os.path.exists(file):
-            flash('მოხდა სეცდომა ფაილის გახსნასთან დაკავშირებით!')
-            return redirect(url_for('user_blueprint.index'))
-        with open(file, 'r') as f:
-            lines = f.readlines()
-            for line in lines:
-                file_data += line + '<br>'
+    # read with line by line
+    file_data = ''
+    if not os.path.exists(file):
+        flash('მოხდა სეცდომა ფაილის გახსნასთან დაკავშირებით!')
+        return redirect(url_for('user_blueprint.index'))
+    with open(file, 'r') as f:
+        lines = f.readlines()
+        for line in lines:
+            file_data += line + '<br>'
 
-        return file_data
-    if 'ALE' in file_name:
-        cha_file_in_ale_folder = os.path.join(uploads_folder, 'cha', 'ALE')
-        file = os.path.join(cha_file_in_ale_folder, file_n)
-        # read with line by line
-        file_data = ''
-        if not os.path.exists(file):
-            flash('მოხდა სეცდომა ფაილის გახსნასთან დაკავშირებით!')
-            return redirect(url_for('user_blueprint.index'))
-        with open(file, 'r') as f:
-            lines = f.readlines()
-            for line in lines:
-                file_data += line + '<br>'
+    return file_data
 
-        return file_data
-
-
+@user_blueprint.route('/login',  methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
         return redirect(url_for('user_blueprint.index'))
@@ -229,6 +179,7 @@ def login():
 
 
 @user_blueprint.route('/reset-password', methods=['GET', 'POST'])
+@login_required
 def reset_password():
     if current_user.is_authenticated:
         return redirect(url_for('user_blueprint.index'))
@@ -272,7 +223,7 @@ def internal_server_error(e):
 
 
 # Logout route
-
+@user_blueprint.route('/logout')
 @login_required
 def logout():
     logout_user()
