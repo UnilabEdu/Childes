@@ -12,7 +12,7 @@ import os
 uploads_folder_in_static_folder = os.path.join(basedir)
 print(static_folder)
 
-BPS = [user_blueprint, admin_upload_bp]
+BLUEPRINTS = [user_blueprint, admin_upload_bp]
 
 # Create Flask application
 def create_app():
@@ -34,17 +34,11 @@ def register_extensions(app):
     login_manager.init_app(app)
     login_manager.login_view = 'user_blueprint.login'
 
-# register blueprint urls
-def register_blueprint_urls():
-    user_blueprint.add_url_rule('/childes/geo/', view_func=index, methods=['GET', 'POST'])
-    user_blueprint.add_url_rule('/childes/login', view_func=login, methods=['GET', 'POST'])
-    user_blueprint.add_url_rule('/childes/logout', view_func=logout, methods=['GET', 'POST'])
 
 
 # Register blueprints
 def register_blueprints(application):
-    register_blueprint_urls()
-    for bp in BPS:
+    for bp in BLUEPRINTS:
         print(bp)
         application.register_blueprint(bp)
     

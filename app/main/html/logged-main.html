@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" file="text/css" href="{{ url_for('user_blueprint.static', filename='css/style.css') }}">
+    <title>Childes</title>
+  </head>
+  <body>
+    <div class="container">
+        <div class="wrapper-logged-main">
+            <!-- header -->
+            <header class="header">
+              <div class="header__wrapper flex-row">
+                <h1><span>TalkBank:</span> CHILDES</h1>
+                <ul class="flex-row">
+                  <a href="{{ url_for('user_blueprint.index') }}">homepage</a>
+                  <a href="{{ url_for('user_blueprint.about') }}">about</a>
+                  <a href="{{ url_for('user_blueprint.about') }}#instructions-section">instruction</a>
+                  {% if current_user.is_authenticated %}
+                  <a href="{{ url_for('user_blueprint.logout') }}">logout</a>
+                  {% endif %}
+                </ul>
+                <a href="{{ url_for('user_blueprint.login') }}" class="user-img">
+                  <img src="{{url_for('user_blueprint.static',filename='images/user.png')}}" alt="user">
+                </a>
+              </div>
+            </header>
+            <!-- main -->
+            <main class="main">
+                <div class="main__wrapper logged-main">
+                    <div class="table-wrapper">
+                      <div class="transcript__table">
+                          <h3>transcript:</h3>
+                          <table>
+                              <tr>
+                                  <th class="flex-row">chat</th>
+                                  <th class="flex-row">path</th>
+                                  <th class="flex-row">filename</th>
+                                  <th class="flex-row">languages</th>
+                                  <th class="flex-row">media</th>
+                                  <th class="flex-row">date</th>
+                                  <th class="flex-row">pid</th>
+                                  <th class="flex-row">design type</th>
+                                  <th class="flex-row">activity</th>
+                                  <th class="flex-row">group type</th>
+                              </tr>
+                              <tr>
+                                  <td class="flex-row"><a class="chat" href="{{url_for('user_blueprint.file', file_name=file)}}" target="_blank">{{file.strip(child_name).strip('.cha')}}</a></td>
+                                  <td class="flex-row">{{current_url}}</td>
+                                  <td class="flex-row">{{file.strip(child_name).strip('.cha')}}</td>
+                                  <td class="flex-row">ქართული</td>
+                                  <td class="flex-row">video</td>
+                                  <td class="flex-row">video</td>
+                                  <td class="flex-row">{{date}}</td>
+                                  <td class="flex-row">long</td>
+                                  <td class="flex-row">toyplay</td>
+                                  <td class="flex-row">biling</td>
+                              </tr>
+                          </table>
+                      </div>
+                      <div class="participants__table">
+                          <h3>participants:</h3>
+                          <table>
+                              <tr>
+                                  <th class="flex-row">participants</th>
+                                  <th class="flex-row">role</th>
+                                  <th class="flex-row">name</th>
+                                  <th class="flex-row">language</th>
+                                  <th class="flex-row">age</th>
+                                  <th class="flex-row">sex</th>
+                              </tr>
+                              {% for id in file_head_data['ID'] %}
+                              <tr>
+                                  <td class="flex-row">{{id[2]}}</td>
+                                  <td class="flex-row">{{id[7]}}</td>
+                                  <td class="flex-row">-</td>
+                                  <td class="flex-row">{{id[0]}}</td>
+                                  <td class="flex-row">{{id[3]}}</td>
+                                  <td class="flex-row">{{id[4]}}</td>
+                              </tr>
+                              {% endfor %}
+                          </table>
+                      </div>
+                    </div>
+                    <div class="transcript">
+                        <ul>
+                          {% for head in file_head_data['head'] %}
+                            {% if head|length == 1 %}
+                              <li><span>{{head[0]}}</span></li>
+                            {% else %}
+                              <li><span>{{head[0]}}</span>  {{head[1]}}</li>
+                            {% endif %}
+                          {% endfor %}
+                        </ul>
+                    </div>
+                    <div class="audios-list">
+                        <ol>
+                        {% for chat in file_main_data['main'] %}
+                          {% if '' == chat[0] %}
+                            <li><span class="list-number"></span>{{chat[1]}} </li>
+                          {% elif 'com:' == chat[0] %}
+                            <span class="com"><span>COM:</span> {{chat[1]}}</span>
+                          {% else %}
+                            <li><span class="list-number">{{loop.index}}</span><span style="margin-left:15px;">{{chat[0]}}</span> {{chat[1]}} <img src="{{url_for('user_blueprint.static',filename='images/play.png')}}" alt="play-btn"></li>
+                          {% endif %}
+                        
+                        {% endfor %}
+                        
+                        </ol>
+                    </div>
+                </div>
+            </main>
+            <!-- aside -->
+            <aside class="aside">
+              <div class="aside__wrapper">
+                <div>
+                  <div class="aside__title flex-row">
+                    <a href="{{ url_for('user_blueprint.index') }}">childes</a>
+                    <span>>></span>
+                    <a href="{{ url_for('user_blueprint.index') }}">ქართული</a>
+                    <span>>></span>
+                    <a href="#" class="active">{{child_name}}</a>
+                  </div>
+                  <ul class="logged-in-ul video-list">
+                    <div class="list-wrapper">
+                    {% for file in child_files %}
+                      <li>
+                        <a href="{{url_for('user_blueprint.child_files', child_name=child_name, file=file)}}">{{file.strip(child_name)}}</a>
+                        <a href="#"><img src="{{url_for('user_blueprint.static',filename='images/text.png')}}" alt="document-icon"></a>
+                        <a href="#"><img src="{{url_for('user_blueprint.static',filename='images/video.png')}}" alt="video-icon"></a>
+                      </li>
+                    
+                    {% endfor %}
+                      
+                    </div>
+                  </ul>
+                </div>
+                <div class="aside__video">
+                    <div class="aside__video-main">
+                    <iframe src="{{one_file.yt_link}}" width=100% height=100% style="overflow:hidden;" scrolling="no"></iframe>
+                    </div>
+                    <div class="aside__thumbnail-videos">
+                        <ul class="flex-row">
+                            <li>
+                                <a href="#" class="active">Video: 020510</a>
+                            </li>
+                            <li>
+                                <a href="#">Video: 020510</a>
+                            </li>
+                            <li>
+                                <a href="#">Video: 020510</a>
+                            </li>
+                            <li>
+                                <a href="#">Video: 020510</a>
+                            </li>
+                            <li>
+                                <a href="#">Video: 020510</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+              </div>
+            </aside>
+        </div>
+    </div>
+    <dialog class="modal flex-column">
+      <div class="modal__icons">
+        <div class="modal__info">
+          <img src="{{url_for('user_blueprint.static',filename='images/modal-info.png')}}" alt="info">
+        </div>
+        <div class="modal__close" onclick="closeModal(modal)">
+          <img src="{{url_for('user_blueprint.static',filename='images/x-circle.png')}}" alt="close">
+        </div>
+      </div>
+      <p>ძვირფასო მომხმარებელო,<br>
+         ვებსაიტის გამოყენება რეკომენდებულია კომპიუტერიდან.
+      </p>
+      <button onclick="closeModal(modal)">გასაგებია</button>
+  </dialog>
+  </body>
+</html>
