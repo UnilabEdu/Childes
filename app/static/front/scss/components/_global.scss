@@ -1,0 +1,116 @@
+// header styles
+.header {
+  grid-area: header;
+  padding: 1.2rem 1rem;
+  background-color: $clr-thinblue;
+  border-radius: 0 0 4px 4px;
+
+  &__wrapper {
+    position: relative;
+    justify-content: space-between;
+  }
+
+  h1 {
+    font-family: $ff-nunitomedium;
+    font-size: $fs-l;
+    font-weight: 500;
+    color: $clr-grey-primary;
+
+    span {
+      font-family: $ff-nunitobold;
+      color: $clr-darkgrey;
+    }
+  }
+
+  ul {
+    position: absolute;
+    right: 15%;
+    gap: 2.4rem;
+
+    a {
+      @extend %link;
+      font-family: $ff-nunitomedium;
+      font-size: $fs-s;
+      color: $clr-darkgrey;
+      text-transform: capitalize;
+    }
+  }
+}
+
+// main styles
+.main {
+  grid-area: main;
+  background-color: $clr-greymain;
+  border-radius: 4px;
+
+  &__wrapper {
+    padding: 2rem 3rem;
+
+    &.logged-main {
+      padding: 0;
+    }
+
+    .table-wrapper {
+      background-color: #fff;
+      margin: 1rem;
+      padding: 1rem;
+      border-radius: 4px;
+    }
+  }
+}
+
+// aside styles
+.aside {
+  grid-area: aside;
+  background-color: $clr-thinblue;
+  border-radius: 4px;
+  
+  &__wrapper {
+    padding: 1rem;
+  }
+
+  &__title {
+    justify-content: flex-start;
+    gap: 0.5rem;
+
+    a {
+      font-family: $ff-nunitomedium;
+      font-weight: 400;
+      text-transform: capitalize;
+      font-size: $fs-m;
+      color: $clr-grey-primary;
+
+      &.active {
+        font-family: $ff-nunitobold;
+        text-decoration: underline;
+        font-weight: 700;
+      }
+
+      span {
+        font-family: $ff-nunitomedium;
+      }
+    }
+  }
+
+  li {
+    margin: 1rem 0 0 1rem;
+    font-family: $ff-firaregular;
+    font-size: $fs-s;
+    color: $clr-darkgrey;
+    cursor: pointer;
+
+    &:hover {
+      font-weight: 700;
+    }
+
+    img {
+      width: 1rem;
+      object-fit: contain;
+      margin-left: 10px;
+
+      &:last-child {
+        margin-left: 6px;
+      }
+    }
+  }
+}

@@ -1,13 +1,6 @@
-import imghdr
 from flask_admin.contrib.sqla import ModelView
+from flask import redirect, url_for
 from flask_login import current_user
-from flask_admin.contrib.fileadmin import FileAdmin
-from flask import redirect, url_for, request, Blueprint, Markup
-from flask_login import login_required, login_user, logout_user, current_user
-from flask_admin.form.upload import FileUploadField
-from wtforms.validators import ValidationError
-from app.main.models import User
-
 
 
 class UserView(ModelView):
