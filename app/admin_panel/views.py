@@ -36,7 +36,7 @@ class AboutPageView(ModelView):
     
     def inaccessible_callback(self, name, **kwargs):
         # redirect to login page if user doesn't have access
-        return redirect(url_for('login'))
+        return redirect(url_for('user_blueprint.login'))
     
     can_delete = False
     can_create = True 
@@ -70,7 +70,7 @@ class LogoutView(ModelView):
         return redirect(url_for('login'))
 
     def _handle_view(self, name, **kwargs):
-        return redirect(url_for('logout'))
+        return redirect(url_for('user_blueprint.logout'))
     
     
 
