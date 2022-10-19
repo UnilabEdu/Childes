@@ -1,8 +1,8 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, PasswordField, BooleanField, SubmitField, FileField
-from wtforms.validators import DataRequired, ValidationError, Email, EqualTo, Length
+from wtforms import StringField, SubmitField
+from wtforms.validators import DataRequired, ValidationError
 from flask_wtf.file import FileField as FF, FileAllowed, FileRequired
-from app.main.models import File
+from app.views.main.models import File
 class UploadForm(FlaskForm):
     # ფაილი უნდა იყოს .cha გაფართოების'
     file = FF('ფაილი', validators=[FileRequired(), FileAllowed(['cha'], 'ფაილი უნდა იყოს .cha გაფართოების')],

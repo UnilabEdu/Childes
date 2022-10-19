@@ -2,7 +2,7 @@
 from app.extensions import db
 from flask_login import UserMixin, AnonymousUserMixin, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
-import jwt
+# import jwt
 from time import time
 import os
 
