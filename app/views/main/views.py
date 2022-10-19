@@ -3,13 +3,11 @@
 from flask import redirect, render_template, request, url_for, Blueprint,flash
 from flask_login import login_required, login_user, logout_user, current_user
 from app.extensions import login_manager, mail
-from app.config import basedir, STATI_FOLDER, uploads_folder, main_statics_folder as statics_folder, main_template_folder as template_folder
-from app.main.models import User, Role, UserRoles, AboutPage, File
-from app.main.forms import LoginForm, ResetForm
+from app.config import UPLOADS_FOLDER, main_statics_folder as statics_folder, MAIN_TEMPLATE as template_folder
+from app.views.main.models import User, AboutPage, File
+from app.views.main.forms import LoginForm, ResetForm
 from flask_mail import Message
 import os
-import jwt
-
 
 # Create blueprint
 
@@ -48,7 +46,7 @@ def index():
 @user_blueprint.route('/<string:child_name>')
 @login_required
 def child(child_name):
-    #mat_folder = os.path.join(STATI_FOLDER, 'uploads', 'cha', 'MAT')
+    #mat_folder = os.path.join(STATIC_FODLER, 'uploads', 'cha', 'MAT')
     #print(os.listdir(mat_folder))
     # get all object from Files model where 'MAT' is in file name
     files = File.query.filter(File.file_name.like(f'%{child_name}%')).all()
@@ -74,7 +72,7 @@ def child_files(child_name, file):
     current_url = f"/{child_name}/{child_files_with_file_name.file_name.strip(child_name).strip('.cha')}"
 
     # find file with file name in static>uploads>cha>child_name
-    cha_file = os.path.join(uploads_folder, 'cha', child_name.upper())
+    cha_file = os.path.join(UPLOADS_FOLDER, 'cha', child_name.upper())
     
     with open(os.path.join(cha_file, file), 'r') as f:
         lines = f.readlines()
@@ -143,7 +141,7 @@ def file(file_name):
         file_name = file_name.replace(str(num), '')
     child_file_name = file_name.replace('.cha', '')
     
-    cha_file_in_mat_folder = os.path.join(uploads_folder, 'cha', f'{child_file_name}')
+    cha_file_in_mat_folder = os.path.join(UPLOADS_FOLDER, 'cha', f'{child_file_name}')
 
     file = os.path.join(cha_file_in_mat_folder, file_n)
 

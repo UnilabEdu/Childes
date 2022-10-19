@@ -1,15 +1,13 @@
 
 from flask import Flask
 from app.extensions import db, migrate, login_manager, csrf, admin, mail
-from app.admin_panel.views import File_View, UserView, LogoutView, LoginView, FilesView, AboutPageView
-from app.main.models import Role, User, File, AboutPage
-from flask_admin.contrib.fileadmin import FileAdmin
-from app.main.views import index, login, logout, user_blueprint
-from app.admin_panel.uploads_view import admin_upload_bp
-from flask_admin.contrib import rediscli
-from app.config import STATI_FOLDER as static_folder, basedir
+from app.views.admin_panel.views import File_View, UserView, LogoutView, LoginView, FilesView, AboutPageView
+from app.views.main.models import Role, User, File, AboutPage
+from app.views.main.views import user_blueprint
+from app.views.admin_panel.uploads_view import admin_upload_bp
+from app.config import STATIC_FODLER as static_folder, BASEDIR
 import os
-uploads_folder_in_static_folder = os.path.join(basedir)
+UPLOADS_FOLDER_in_static_folder = os.path.join(BASEDIR)
 print(static_folder)
 
 BLUEPRINTS = [user_blueprint, admin_upload_bp]
