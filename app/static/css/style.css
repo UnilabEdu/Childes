@@ -1,0 +1,22 @@
+.yt-link {
+    width: 30% !important;
+    margin-left: 35% ;
+    margin-top: 10%;
+
+}
+.file-upload {
+    width: 30% !important;
+    margin-left: 35% ;
+    margin-top: 2%;
+
+}
+.btn-outline-success {
+    margin-left: 46%;
+    margin-top: 2%;
+}
+.error-mess{
+    margin-left: 35%;
+    margin-top: 2%;
+    color: red;
+
+}

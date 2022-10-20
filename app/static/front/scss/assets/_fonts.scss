@@ -1,0 +1,48 @@
+@font-face {
+  font-family: "nunito-medium";
+  src: url("../../font/nunito-medium.woff2") format("woff2"),
+    url("../../font/nunito-medium.woff") format("woff"),
+    url("../../font/nunito-medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "nunito-bold";
+  src: url("../../font/nunito-bold.woff2") format("woff2"),
+    url("../../font/nunito-bold.woff") format("woff"),
+    url("../../font/nunito-bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "fira-regular";
+  src: url("../../font/firago-regular.woff2") format("woff2"),
+    url("../../font/firago-regular.woff") format("woff"),
+    url("../../font/firago-regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "fira-medium";
+  src: url("../../font/firago-medium.woff2") format("woff2"),
+    url("../../font/firago-medium.woff") format("woff"),
+    url("../../font/firago-medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "helvetica";
+  src: url("../../font/helvetica.woff2") format("woff2"),
+    url("../../font/helvetica.woff") format("woff"),
+    url("../../font/helvetica.ttf") format("truetype");
+  font-weight: normal;
+  font-display: swap;
+}
