@@ -1,0 +1,86 @@
+{% extends "main.html" %}
+{% block content %}
+        <main class="main">
+      {% with messages = get_flashed_messages() %}
+          {% if messages %}
+          <div class="alert alert-danger" role="alert" class="alert-message" style="width:30%; margin-left:35%;margin-top:3%;">
+            <ul class=flashes>
+            {% for message in messages %}
+              <li style="color:red;">{{ message }}</li>
+            {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+  
+        {% endwith %}
+          <div class="main__wrapper">
+            <h2>TalkBank: <span>CHILDES</span></h2>
+            <section class="main__goal" id="goal-section">
+              <h3>საიტის მიზანი და დანიშნულება</h3>
+              <p>{{about['goals']}}
+                <hr>
+                </p>
+            </section>
+            <section class="main__instructions" id="instructions-section">
+              <h3>საიტის გამოყენების ინსტრუქცია</h3>
+              <p>{{about['instruction']}}
+                <hr>
+                </p>
+            </section>
+            <div class="main__creators">
+              <h3>პროექტზე მუშაობდნენ</h3>
+              <ul>
+                {{about['who_worked']}}
+              </ul>
+            </div>
+          </div>
+        </main>
+        <!-- aside -->
+        {% if not current_user.is_authenticated %}
+        <aside class="aside">
+            <div class="aside__wrapper">
+                <div class="aside__title flex-row">
+                  <a href="{{ url_for('user_blueprint.index') }}" class="active">childes</a>
+                  <span>>></span>
+                </div>
+                <ul>
+                    <li><a href="{{ url_for('user_blueprint.index') }}">ქართული</a></li>
+                </ul>
+            </div>
+        </aside>
+        {% else %}
+          <aside class="aside">
+              <div class="aside__wrapper">
+                <div class="aside__title flex-row">
+                  <a href="{{ url_for('user_blueprint.index') }}" style="text-decoration: none;">childes</a>
+                  <span>>></span>
+                  <a href="{{ url_for('user_blueprint.index') }}" class="active">ქართული</a>
+                  <span>>></span>
+                </div>
+                <ul class="logged-in-ul">
+                  <li class="grey-li"><a href="{{ url_for('user_blueprint.child', child_name='ALE') }}">ALE</a></li>
+                  <li class="grey-li"><a href="{{ url_for('user_blueprint.child', child_name='GAB') }}">GAB</a></li>
+                  <li class="grey-li"><a href="{{ url_for('user_blueprint.child', child_name='ANA') }}">ANA</a></li>
+                  <li class="grey-li"><a href="{{ url_for('user_blueprint.child', child_name='MAT') }}">MAT</a></li>
+                </ul>
+              </div>
+            </aside>
+        {% endif %}
+      </div>
+    </div>
+    <dialog class="modal flex-column">
+        <div class="modal__icons">
+          <div class="modal__info">
+            <img src="{{url_for('user_blueprint.static',filename='images/modal-info.png')}}" alt="info">
+          </div>
+          <div class="modal__close" onclick="closeModal(modal)">
+            <img src="{{url_for('user_blueprint.static',filename='images/x-circle.png')}}" alt="close">
+          </div>
+        </div>
+        <p>ძვირფასო მომხმარებელო,<br>
+           ვებსაიტის გამოყენება რეკომენდებულია კომპიუტერიდან.
+        </p>
+        <button onclick="closeModal(modal)">გასაგებია</button>
+    </dialog>
+
+{% endblock %}

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" file="text/css" href="{{ url_for('user_blueprint.static', filename='css/style.css') }}">
+    <title>Childes</title>
+  </head>
+  <body>
+    <div class="container">
+    {% if not current_user.is_authenticated %}
+    <div class="wrapper">
+    {% else %}
+    <div class="wrapper-logged">
+    {% endif %} 
+        <!-- header -->
+        <header class="header">
+          <div class="header__wrapper flex-row">
+            <h1><span>TalkBank:</span> CHILDES</h1>
+            <ul class="flex-row">
+              <a href="{{ url_for('user_blueprint.index') }}">homepage</a>
+              <a href="{{ url_for('user_blueprint.about') }}">about</a>
+              <a href="{{ url_for('user_blueprint.about') }}#instructions-section">instruction</a>
+              {% if current_user.is_authenticated %}
+              <a href="{{ url_for('user_blueprint.logout') }}">logout</a>
+              {% endif %}
+            </ul>
+            <a href="{{ url_for('user_blueprint.login') }}" class="user-img">
+              <img src="{{url_for('user_blueprint.static',filename='images/user.png')}}" alt="user">
+            </a>
+          </div>
+        </header>
+    {% block content %}
+    
+    {% endblock content %}
+    <script src="{{ url_for('user_blueprint.static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('user_blueprint.static', filename='js/reset-psw.js') }}"></script>
+    <script src="{{ url_for('user_blueprint.static', filename='js/modal.js') }}"></script>
+  </body>
+</html>

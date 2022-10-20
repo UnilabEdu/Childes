@@ -1,0 +1,112 @@
+.main {
+  .auth-para {
+    margin: 5rem auto;
+    max-width: 426px;
+    font-family: $ff-firaregular;
+    text-align: center;
+  }
+
+  &__form {
+    max-width: 380px;
+    margin: 5.6rem auto;
+    gap: 1.25rem;
+
+    &-field {
+      position: relative;
+      width: 100%;
+      align-items: flex-start;
+
+      &:nth-child(3) {
+        justify-content: space-between;
+      }
+
+      .flex-row {
+        gap: 0.5rem;
+
+        label {
+          font-size: $fs-xs;
+        }
+      }
+
+      a {
+        font-size: $fs-xs;
+        text-decoration: underline;
+      }
+
+      .hide-password {
+        position: absolute;
+        top: 70%;
+        right: 1.25rem;
+        transform: translateY(-50%);
+        background-color: transparent;
+        border: none;
+        outline: none;
+        cursor: pointer;
+      }
+    }
+
+    label {
+      margin: 0.5rem 0;
+      font-family: $ff-firaregular;
+      font-size: $fs-s;
+    }
+
+    input {
+      padding: 1rem;
+      width: 100%;
+      border: none;
+      outline: none;
+      border-radius: 6px;
+    }
+
+    input[type="checkbox"] {
+      width: initial;
+    }
+
+    input[type="submit"] {
+      background-color: $clr-darkblue;
+      margin-top: 2rem;
+      border-radius: 6px;
+      color: $clr-white;
+      font-size: $fs-s;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        scale: 0.9;
+      }
+    }
+
+    .input-error {
+      display: none;
+      margin-top: 1.8rem;
+      color: $clr-red;
+      font-size: $fs-s;
+      font-family: $ff-firaregular;
+
+      &.active {
+        display: block;
+      }
+    }
+
+    .input-success {
+      display: none;
+      margin-top: 1.8rem;
+      font-size: $fs-s;
+      text-align: center;
+
+      &.active {
+        display: block;
+      }
+
+      img {
+        width: 35px;
+      }
+
+      p {
+        margin: 1rem 0;
+        color: $clr-lightgreen;
+      }
+    }
+  }
+}

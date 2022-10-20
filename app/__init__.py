@@ -1,17 +1,16 @@
 
 from flask import Flask
-from app.extensions import db, migrate, login_manager, csrf, admin
-from app.admin_panel.views import UserView, FileAdmina, LogoutView, LoginView
-from app.main.models import Role, User
-from flask_admin.contrib.fileadmin import FileAdmin
-from app.main.views import index, login, logout, user_blueprint
-from flask_admin.contrib import rediscli
+from app.extensions import db, migrate, login_manager, csrf, admin, mail
+from app.views.admin_panel.views import File_View, UserView, LogoutView, LoginView, FilesView, AboutPageView
+from app.views.main.models import Role, User, File, AboutPage
+from app.views.main.views import user_blueprint
+from app.views.admin_panel.uploads_view import admin_upload_bp
+from app.config import STATIC_FODLER as static_folder, BASEDIR
 import os
-static_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static')
-uploads_folder_in_static_folder = os.path.join(static_folder, 'uploads')
+UPLOADS_FOLDER_in_static_folder = os.path.join(BASEDIR)
 print(static_folder)
 
-BPS = [user_blueprint]
+BLUEPRINTS = [user_blueprint, admin_upload_bp]
 
 # Create Flask application
 def create_app():
@@ -29,27 +28,27 @@ def register_extensions(app):
     db.init_app(app)
     migrate.init_app(app, db)
     csrf.init_app(app)
+    mail.init_app(app)
     login_manager.init_app(app)
-    login_manager.login_view = 'login'
+    login_manager.login_view = 'user_blueprint.login'
 
-# register blueprint urls
-def register_blueprint_urls():
-    user_blueprint.add_url_rule('/', view_func=index, methods=['GET', 'POST'])
-    user_blueprint.add_url_rule('/login', view_func=login, methods=['GET', 'POST'])
-    user_blueprint.add_url_rule('/logout', view_func=logout, methods=['GET', 'POST'])
 
 
 # Register blueprints
 def register_blueprints(application):
-    register_blueprint_urls()
-    for bp in BPS:
+    for bp in BLUEPRINTS:
+        print(bp)
         application.register_blueprint(bp)
     
 def register_admin(app):
     admin.add_view(UserView(User, db.session, name='მომხმარებელი', endpoint='users', category='მომხმარებლები'))
-    admin.add_view(FileAdmina(uploads_folder_in_static_folder, '/uploads', name='სტატიკური ფაილები'))
     # add log out view to admin panel
-    admin.add_view(LogoutView(User, db.session, name='გასვლა'))
-    # if user is not logged in redirect to login page
+    # files upload
+    admin.add_view(FilesView(User, db.session, name='ფაილების ატვირთვა', endpoint='files', category='ფაილები'))
+    admin.add_view(File_View(File,db.session, name='ფაილები'))
+
+    # about page view
+    admin.add_view(AboutPageView(AboutPage, db.session, name='ჩვენს შესახებ', endpoint='about', category='გვერდები'))
     admin.add_view(LoginView(Role, db.session, name='შესვლა'))
+    admin.add_view(LogoutView(User, db.session, name='გასვლა'))
     admin.init_app(app)
