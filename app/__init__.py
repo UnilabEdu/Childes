@@ -17,7 +17,6 @@ def create_app():
     app = Flask(__name__)
 
     app.config.from_pyfile('config.py')
-
     register_extensions(app)
     register_blueprints(app)
     register_admin(app) 

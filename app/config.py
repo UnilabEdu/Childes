@@ -14,18 +14,20 @@ MAIN_TEMPLATE_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), 
 MAIN_TEMPLATE = os.path.join(MAIN_TEMPLATE_FOLDER, 'main')
 ADMIN_PANEL_TEMPLATES = os.path.join(MAIN_TEMPLATE_FOLDER, 'admin_panel')
 
-print(main_statics_folder, MAIN_TEMPLATE_FOLDER)
+
+
 
 ADMIN_PANEL_FOLDER = os.path.join(BASEDIR, 'admin_panel')
 
 
 FLASK_ADMIN_SWATCH = 'cerulean'
-MAIL_SERVER = 'smtp.gmail.com'
-MAIL_PORT = 465
-MAIL_USE_TLS = False
-MAIL_USE_SSL = True
-MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
-MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
+MAIL_SERVER = 'smtp.mailtrap.io'
+MAIL_PORT = 2525
+MAIL_USE_TLS = True
+MAIL_USE_SSL = False
+MAIL_USERNAME = 'b751eb87d05854'
+MAIL_PASSWORD = '5f89c3ea1bb1ef'
+
 
 
 

@@ -13,3 +13,7 @@ class LoginForm(FlaskForm):
 class ResetForm(FlaskForm):
     email = EmailField('Email', validators=[DataRequired(message="ეს ველი სავალდებულოა"), Email()])
     submit = SubmitField('Reset Password')
+
+class ResetPasswordForm(FlaskForm):
+    new_password = PasswordField('Password',validators=[DataRequired(message='ეს ველი სავალდებულოა'),Length(min=6, max=25)], render_kw={"placeholder": "********"})
+    submit = SubmitField('Change Password')

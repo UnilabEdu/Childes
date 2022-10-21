@@ -7,17 +7,13 @@
               პაროლის აღსადგენად გთხოვთ, მიუთითოთ თქვენი რეგისტრირებული
               ელ-ფოსტა, სადაც მიიღებთ პაროლის გნაახლების ლინკს.
             </p>
-            <form action="{{ url_for('user_blueprint.reset_password') }}" class="main__form flex-column" id="reset-psw" autocomplete="off" method=post>
+            <form class="main__form flex-column" id="reset-psw" autocomplete="off" method="post">
               {{ form.hidden_tag() }}
+
               <div class="main__form-field flex-column">
-                <label for="email">ელ-ფოსტა:</label>
-                <!-- <input
-                  type="email"
-                  id="psw-reset-email"
-                  placeholder="example@email.ge"
-                  required
-                /> -->
-                {{ form.email(id="psw-reset-email", placeholder="example@gmail.com")}}
+                <label for="reset-psw">ახალი პაროლი:</label>
+
+                {{ form.new_password }}
               </div>
               <input type="submit" value="პაროლის აღდგენა" />
               {% with messages = get_flashed_messages() %}
@@ -32,7 +28,7 @@
               <span class="input-error" id="reset-psw-error">** ელ-ფოსტა არასწორია, გთხოვთ მიუთითოთ სწორი მისამართი.</span>
               <span class="input-success" id="reset-psw-success">
                 <img src="../images/success.png" alt="success">
-                <p>შეტყობინება გაიგზავნა წარმატებით, პაროლის აღდგენის ლინკს მიიღებთ მეილზე.</p>
+                <p>შეტყობინება გაიგზავნა წარმატებით, პაროლი აღდგენილია.</p>
               </span>
             </form>
           </div>

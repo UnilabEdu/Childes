@@ -1,11 +1,11 @@
-
-
 from flask import redirect, render_template, request, url_for, Blueprint,flash
 from flask_login import login_required, login_user, logout_user, current_user
-from app.extensions import login_manager, mail
+from app.extensions import login_manager
+from app.views.main.models import db
 from app.config import UPLOADS_FOLDER, main_statics_folder as statics_folder, MAIN_TEMPLATE as template_folder
 from app.views.main.models import User, AboutPage, File
-from app.views.main.forms import LoginForm, ResetForm
+from app.views.main.forms import LoginForm, ResetForm,ResetPasswordForm
+from app.utils import password_reset
 from flask_mail import Message
 import os
 
@@ -18,7 +18,7 @@ user_blueprint = Blueprint('user_blueprint',
                             static_folder=statics_folder,
                             template_folder=template_folder,
                             url_prefix='/')
-                            
+
 
 
 # register login manager with the application
@@ -62,18 +62,18 @@ def child(child_name):
 def child_files(child_name, file):
     child_files = File.query.filter(File.file_name.like(f'%{child_name}%')).all()
     child_files_with_file_name = File.query.filter(File.file_name.like(f'%{file}%')).first()
-    print(child_files)
+
     if not child_files or not child_files_with_file_name:
         flash('არასწორი მოთხოვნა, სცადეთ თავიდან')
         return redirect(url_for('user_blueprint.index'))
-    
+
     #stripped_filename = file.split('.')[0]
-    print(child_files_with_file_name.file_name.strip(child_name).strip('.cha'))
+
     current_url = f"/{child_name}/{child_files_with_file_name.file_name.strip(child_name).strip('.cha')}"
 
     # find file with file name in static>uploads>cha>child_name
     cha_file = os.path.join(UPLOADS_FOLDER, 'cha', child_name.upper())
-    
+
     with open(os.path.join(cha_file, file), 'r') as f:
         lines = f.readlines()
 
@@ -90,9 +90,9 @@ def child_files(child_name, file):
                     and '' != line.strip('@').strip('\n').split('\t')[0] \
                     and '%' not in line.strip('@').strip('\n').split('\t')[0] \
                     and 'End' != line.strip('@').strip('\n').split('\t')[0]:
-                
+
                 file_head_data['head'].append(line.strip('@').strip('\n').split('\t'))
-            
+
             else:
                 if '' == line.strip('*').strip('%').strip('@').strip('\n').split('\t')[0] and len(file_main_data['main']) > 0:
                     # append line.strip('*').strip('%').strip('@').strip('\n').split('\t') to last element in file_main_data['main']
@@ -100,16 +100,16 @@ def child_files(child_name, file):
                     file_main_data['main'][-1][1] += line.strip('*').strip('%').strip('@').strip('\n').split('\t')[1]
                 if line.strip('*').strip('%').strip('@').strip('\n').split('\t')[0] != '':
                     file_main_data['main'].append(line.strip('*').strip('%').strip('@').strip('\n').split('\t'))
-            
-            
+
+
     # print(file_head_data['ID'])    
-    
-    return render_template('logged-main.html', 
-                           files=child_files, 
-                           file=file, 
+
+    return render_template('logged-main.html',
+                           files=child_files,
+                           file=file,
                            child_name=child_name,
                            one_file=child_files_with_file_name,
-                           file_head_data=file_head_data, 
+                           file_head_data=file_head_data,
                            file_main_data=file_main_data,
                            current_url=current_url,
                            date=date,
@@ -134,13 +134,13 @@ def file(file_name):
     if not file:
         flash('არ არსებობს ეს ფაილი')
         return redirect(url_for('user_blueprint.index'))
-    
+
     # stripping file name for having only child name
     ten_number = [i for i in range(0, 10)]
     for num in ten_number:
         file_name = file_name.replace(str(num), '')
     child_file_name = file_name.replace('.cha', '')
-    
+
     cha_file_in_mat_folder = os.path.join(UPLOADS_FOLDER, 'cha', f'{child_file_name}')
 
     file = os.path.join(cha_file_in_mat_folder, file_n)
@@ -163,50 +163,52 @@ def login():
         return redirect(url_for('user_blueprint.index'))
     form = LoginForm()
     if form.validate_on_submit():
-        print('validated')
         user = User.query.filter_by(email=form.email.data).first()
         if user is not None and user.verify_password(form.password.data):
-            print('user')
+
             login_user(user, form.remember.data)
             return redirect(request.args.get('next') or url_for('user_blueprint.index'))
         else:
-            print('error')
+
             flash('არასწორი მომხმარებელი ან პაროლი')
             return redirect(url_for('user_blueprint.login'))
     return render_template('login.html', form=form)
 
 
 @user_blueprint.route('/reset-password', methods=['GET', 'POST'])
-@login_required
 def reset_password():
     if current_user.is_authenticated:
         return redirect(url_for('user_blueprint.index'))
     form = ResetForm()
     if form.validate_on_submit():
-        print('validated')
+
         user = User.query.filter_by(email=form.email.data).first()
         if user:
-            print('user',user)
-            #token = user.get_reset_token()
-            print(type(user.email))
-            msg = Message()
-            msg.subject = 'პაროლის აღდგენა'
-            msg.recipients = [user.email]
-            msg.sender = 'minuwu@mailo.icu'
-            msg.body = f'გამარჯობა {user.first_name}!'
-            mail.send(msg)
+            token = user.get_reset_token()
+            password_reset(body='body',email=[user.email],token=token,user_email=user.email)
 
-            
+        else:
+            flash('მეილი არ არსებობს,გთხოვთ შეიყვანოთ სწორი მეილი')
+            return redirect(url_for('user_blueprint.reset_password'))
+
         flash('თქვენი პაროლის შეცვლის ბმული გაიგზავნა თქვენს ელ.ფოსტაზე')
         return redirect(url_for('user_blueprint.login'))
-    print(form.errors)
+
     return render_template('reset.html', form=form)
 
 @user_blueprint.route('/reset_password/<token>', methods=['GET', 'POST'])
 def reseting_password(token):
     if current_user.is_authenticated:
         return redirect(url_for('index'))
-    return 'reset password'
+    form = ResetPasswordForm(request.form)
+    user = User.verify_reset_token(token)
+
+    if request.method == 'POST' and form.validate_on_submit():
+        user.password = form.new_password.data
+        db.session.commit()
+        return redirect(url_for('user_blueprint.index'))
+
+    return render_template('pasw_reset.html',form=form)
 
 # app errorhandlers
 @user_blueprint.app_errorhandler(404)
