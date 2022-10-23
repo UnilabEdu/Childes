@@ -203,9 +203,15 @@ def reseting_password(token):
     form = ResetPasswordForm(request.form)
     user = User.verify_reset_token(token)
 
+    if not user:
+        flash('პაროლის აღდგენისთვის განკუთვნილი დრო გავიდა, სცადეთ ხელახლა.')
+        return redirect(url_for('user_blueprint.index'))
+
     if request.method == 'POST' and form.validate_on_submit():
         user.password = form.new_password.data
         db.session.commit()
+        flash('თქვენი პაროლი წარმატებთ შეიცვალა.')
+        print(token)
         return redirect(url_for('user_blueprint.index'))
 
     return render_template('pasw_reset.html',form=form)

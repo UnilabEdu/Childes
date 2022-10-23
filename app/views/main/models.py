@@ -1,4 +1,4 @@
-from app.config import SECRET_KEY
+from app.config import Config
 from app.extensions import db
 from flask_login import UserMixin, AnonymousUserMixin, current_user
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -55,19 +55,20 @@ class User(db.Model, UserMixin):
     def verify_password(self, password):
         return self.password == password
 
-    def get_reset_token(self, expires=500):
+    def get_reset_token(self, expires=30):
         print(os.environ.get('MAIL_PASSWORD'))
         return jwt.encode({'reset_password': self.email,
                            'exp': time() + expires},
-                          key=SECRET_KEY)
+                          key=Config.SECRET_KEY)
 
     @classmethod
-    def verify_reset_token(token):
+    def verify_reset_token(cls,token):
         try:
             email = jwt.decode(token,
-                               key=SECRET_KEY)['reset_password']
+                               key=Config.SECRET_KEY,algorithms=['HS256'])['reset_password']
+
         except Exception as e:
-            print(e)
+            print(e,'giorgi')
             return
         return User.query.filter_by(email=email).first()
 
