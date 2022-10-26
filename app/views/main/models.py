@@ -101,7 +101,8 @@ class File(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     file_name = db.Column(db.String(80), unique=True, nullable=False)
-    yt_link = db.Column(db.String(80), unique=True, nullable=False)
+    embed_yt_link = db.Column(db.String(80), unique=True, nullable=False)
+    yt_link_id = db.Column(db.String(80), unique=True, nullable=False)
 
     def create(self, commit=True, **kwargs):
         for key, value in kwargs.items():
@@ -120,8 +121,8 @@ class File(db.Model):
         return cls.query.filter_by(file_name=file_name).first() is not None
 
     @classmethod
-    def already_exists_yt(cls, yt_link):
-        return cls.query.filter_by(yt_link=yt_link).first() is not None
+    def already_exists_yt(cls, embed_yt_link):
+        return cls.query.filter_by(embed_yt_link=embed_yt_link).first() is not None
 
     @staticmethod
     def get_by_name(name):

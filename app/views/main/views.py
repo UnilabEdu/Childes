@@ -3,7 +3,7 @@ from flask_login import login_required, login_user, logout_user, current_user
 from app.extensions import login_manager
 from app.views.main.models import db
 from app.config import UPLOADS_FOLDER, main_statics_folder as statics_folder, MAIN_TEMPLATE as template_folder
-from app.views.main.models import User, AboutPage, File
+from app.views.main.models import User, AboutPage, File,Role
 from app.views.main.forms import LoginForm, ResetForm,ResetPasswordForm
 from app.utils import password_reset
 from flask_mail import Message
@@ -34,12 +34,15 @@ def load_user(user_id):
 @login_required
 @user_blueprint.route('/')
 def index():
+    # first_file_delete = File.query.order_by(File.id).first()
+    # if first_file_delete:
+    #     first_file_delete.delete()
     about = AboutPage.get_by_id(1)
     return render_template('index.html', about=about)
-# @user_blueprint.route('/create-roles')
-# def create_roles():
-#     Role.create_roles()
-#     return 'roles created'
+@user_blueprint.route('/create-roles')
+def create_roles():
+    Role.create_roles()
+    return 'roles created'
 
 
 
@@ -62,7 +65,7 @@ def child(child_name):
 def child_files(child_name, file):
     child_files = File.query.filter(File.file_name.like(f'%{child_name}%')).all()
     child_files_with_file_name = File.query.filter(File.file_name.like(f'%{file}%')).first()
-
+    first_five_file = child_files[:5]
     if not child_files or not child_files_with_file_name:
         flash('არასწორი მოთხოვნა, სცადეთ თავიდან')
         return redirect(url_for('user_blueprint.index'))
@@ -113,7 +116,8 @@ def child_files(child_name, file):
                            file_main_data=file_main_data,
                            current_url=current_url,
                            date=date,
-                           child_files=child_files)
+                           child_files=child_files,
+                           first_five_file=first_five_file)
 
 
 

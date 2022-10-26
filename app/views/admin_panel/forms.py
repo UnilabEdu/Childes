@@ -14,8 +14,8 @@ class UploadForm(FlaskForm):
                           )
     submit = SubmitField('ატვირთვა', render_kw={"class": "btn btn-outline-success"})
     
-    def validate_yt_link(self, yt_link):
-        if 'https://www.youtube.com/watch?v=' not in yt_link.data:
+    def validate_yt_link(self, embed_yt_link):
+        if 'https://www.youtube.com/watch?v=' not in embed_yt_link.data:
             raise ValidationError('Youtube ვიდეოს მისამართი არასწორია')
         return True
     
