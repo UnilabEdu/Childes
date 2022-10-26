@@ -64,7 +64,11 @@ class LogoutView(ModelView):
 
     def _handle_view(self, name, **kwargs):
         return redirect(url_for('user_blueprint.logout'))
+
+class MainPageView(ModelView):
     
+    def _handle_view(self, name, **kwargs):
+        return redirect(url_for('user_blueprint.index'))
     
 
 class LoginView(ModelView):

@@ -1,0 +1,870 @@
+@UTF8
+@Begin
+@Languages:	kat
+@Participants:	CHI Target_Child, SIS2 Sister, SIS1 Sister, BRA Brother, FAT
+	Father, MOT Mother
+@ID:	kat|GCLC|CHI|4;00.27|male|TD|White|Target_Child|||
+@ID:	kat|GCLC|SIS2||female||White|Sister|||
+@ID:	kat|GCLC|SIS1||female||White|Sister|||
+@ID:	kat|GCLC|BRA||male|TD|White|Brother|||
+@ID:	kat|GCLC|FAT||male|TD|White|Father|||
+@ID:	kat|GCLC|MOT||||White,MC|Mother|||
+@Location:	Tbilisi; GE
+@Media:	MAT40027(1), video
+@Date:	27-SEP-2020
+@Layout:	Bed room
+@Situation:	child is sitting at the table and is holding the paper.
+*SIS1:	dghes otsdashvidi sekt'emberia, vagrdzeleb chats'eras, chats'erashi
+	monats'ileobs mate k'varatskhelia.
+*CHI:	&=head:yes.
+*SIS1:	keti k'varatskhelia.
+*CHI:	&=head:yes.
+*SIS1:	mariam k'varatskhelia.
+*CHI:	&=head:yes.
+*SIS1:	da sheidzleba nino purtseladzets.
+*CHI:	she@p sheileba [: sheidzleba] [*p:w] k'ide [: k'idev] [*p:w] irak'li
+	k'varatskheliats.
+*SIS1:	ara, irak'li k'varatskhelia ara mgonia xxx.
+*CHI:	keti damikhaze.
+*SIS1:	<ra>[x5].
+*CHI:	q'vavili mgvalat [: mrgvlad] [*p:w].
+*SIS1:	<ra>[x5].
+*CHI:	ik mgvalat [: mrgvlad] [*p:w].
+*SIS1:	isev iseti?
+*CHI:	da .
+*SIS1:	au@i ar ginda.
+*CHI:	shignit khazebi.
+*SIS1:	egeti ro [: rom] [*p:w] ar minda.
+*CHI:	ai aseti.
+*SIS1:	maseti?
+*CHI:	&=head:yes.
+*SIS1:	ai es asetia.
+*CHI:	ara adu@p akhali, ekha [: akhla] [*p:w] sad viq'avi purtseli.
+*SIS1:	amas tu ar gaaperadeb egre ro [: rom] [*p:w] darcheba.
+*CHI:	ekhla [: akhla] [*p:w] amits'ie da.
+*SIS1:	da modi ai jer ra dakhat'e itsi ak khe dakhat'e.
+*CHI:	h@i au@i &=moans.
+*SIS1:	shen khis dakhat'va ar itsi me mgoni.
+*CHI:	&=head:no.
+*SIS1:	ar itsi?
+*CHI:	&=head:no.
+*SIS1:	vai@i khis dakhat'va ar itsi bich'o, mag nakhat'ze mze dakhat'e?
+%com:	child is looking through the coloring book.
+*CHI:	&=head:no.
+*SIS1:	midi jer mag nakhat'ze mze da tsa dakhat'e.
+*CHI:	i@i romelze?
+*SIS1:	mag nakhat'ze k'o@p kh@l sakhli ro [: rom] [*p:w] khat'ia.
+*CHI:	ai mze.
+*SIS2:	akha [: akhla] [*p:w] <tsa>[x2] tsisperia, ra ts'esia mze
+	st'apilosperi tu mze ghvinisperi ginakhavs?
+*CHI:	minda.
+*SIS1:	ih@i &=laughs.
+*SIS1:	ginda k'argi tu ginda.
+*CHI:	ai ghvinisperi tsa.
+*SIS1:	ghvinisperi tsa rodis na@p a@i k'ai [: k'argi] [*p:w] raghatsa dros
+	ai sanam daghamdeba an sanam gatendeba sheileba [: sheidzleba]
+	[*p:w] ari [: aris] [*p:w] ghvinisperi tsa mara [: magram] [*p:w]
+	ise chveulebrivad ar aris ghvinisperi.
+*CHI:	keti p'irikit ghvinisperi chrdili.
+*SIS1:	ras nishnavs?
+*CHI:	chrdili ghvinisperi.
+*SIS1:	ra?
+*CHI:	chrdili.
+*SIS1:	chrdili ranairad ari [: aris] [*p:w] ghvinisperi?
+*CHI:	shavi kho ar aris?
+*SIS1:	chrdili ra peria?
+*CHI:	shavi.
+*SIS1:	kho da ranairad aris mashin ghvinis ghvinisperi.
+*SIS2:	www.
+%exp:	little daughter is talking to her sister.
+*CHI:	ni@p.
+*SIS2:	www.
+%exp:	little daughter is talking to her sister.
+*SIS1:	www.
+%exp:	older daughter is talking to her sister.
+*SIS2:	www.
+%exp:	little daughter is talking to her sister.
+*SIS1:	www.
+%exp:	older daughter is talking to her sister.
+*SIS2:	www.
+%exp:	little daughter is talking to her sister.
+*SIS1:	www.
+%exp:	older daughter is talking to her sister.
+*CHI:	teat'rts'ini@p gavak'etot.
+%com:	child is shaking his hand.
+*SIS1:	www.
+%exp:	older daughter is talking to her sister.
+*SIS2:	www.
+%exp:	little daughter is talking to her sister.
+*SIS1:	www.
+%exp:	older daughter is talking to her sister.
+*CHI:	gugu@p.
+*SIS2:	www.
+%exp:	little daughter is talking to her sister.
+*CHI:	e@k.
+*SIS1:	www.
+%exp:	older daughter is talking to her sister.
+*CHI:	e@k eh@i m@l &=sneezes.
+*SIS1:	www.
+%exp:	older daughter is talking to her sister.
+*CHI:	h@k.
+*SIS2:	www.
+%exp:	little daughter is talking to her sister.
+*SIS1:	www.
+%exp:	older daughter is talking to her sister.
+*SIS2:	mate akha [: akhla] [*p:w] mitkhari shen reebi [: raebi] [*p:w]
+	dakhat'e?
+*CHI:	q'vavilebi.
+*SIS2:	mart'o q'vavilebi?
+*CHI:	da sakhli.
+*SIS2:	da?
+*CHI:	sakhli.
+*SIS2:	sakanela?
+*CHI:	k'i t'i@p maia@p.
+*SIS2:	k'ide [: k'idev] [*p:w].
+*CHI:	i@i erd@p ertaderti me mch'irdeba ts'ebo.
+%com:	child is taking on the glue.
+*SIS2:	ristvis?
+*CHI:	h@k es ro [: rom] [*p:w] davats'ebo skhva purtsels.
+*SIS1:	www.
+%exp:	older daughter is talking to her sister.
+%com:	child is pouring the glue on the paper, than is putting on it.
+*CHI:	aha.
+*SIS2:	www.
+%exp:	little daughter is talking to her sister.
+*SIS1:	www.
+%exp:	older daughter is talking to her sister.
+*SIS2:	www.
+%exp:	little daughter is talking to her sister.
+*SIS1:	www.
+%exp:	older daughter is talking to her sister.
+%com:	child is standing and is bringing the paper and is going to another
+	room.
+*CHI:	ts'eboa.
+*SIS1:	ih@i.
+*MOT:	www.
+%exp:	mother is talking to someone.
+*SIS1:	rat'o [: rat'om] [*p:w] gaak'ete ts'ebo mate ra keni?
+*MOT:	www.
+%exp:	mother is talking to her older daughter.
+*CHI:	ts'ebo mariam kaghaldi.
+*SIS1:	www.
+%exp:	older daughter is talking to her mother.
+*MOT:	www.
+%exp:	mother is talking to her older daughter.
+*SIS2:	ai rat'o [: rat'om] [*p:w] gaak'ete?
+*CHI:	ts'ebo.
+*SIS1:	www.
+%exp:	older daughter is talking to her mother.
+*SIS2:	ai ras shvebi [: shvrebi] [*p:w]?
+*CHI:	mch'irdeba.
+*SIS2:	ar daats'ebo.
+*SIS1:	www.
+%exp:	older daughter is talking to her sister.
+*CHI:	ro [: rom] [*p:w] davkhat'o, dakhat'va minda.
+*SIS1:	www.
+%exp:	older daughter is talking to her sister.
+*CHI:	dasakhat'i mch'irdeba.
+*SIS1:	www.
+%exp:	older daughter is talking to her sister.
+*SIS1:	modi ak mate.
+*CHI:	tore [: torem] [*p:w].
+*SIS1:	chven kho vits'ert.
+*CHI:	tkven ar.
+*SIS1:	prtkhilad.
+*CHI:	mogapikrdebodat.
+%com:	child is going on the chair.
+*SIS1:	kho xxx gaak'ete.
+*CHI:	magis gak'eteba mindoda.
+*SIS1:	<midi>[x2] gaak'ete shen.
+*CHI:	jobia jer es <movkhsna>[x2].
+*MOT:	www.
+%exp:	mother is talking to her husband.
+*FAT:	www.
+%exp:	father is talking to his wife.
+*CHI:	da k'ide [: k'idev] [*p:w] mch'irdeba tsot'a ts'ebo.
+*MOT:	www.
+%exp:	mother is talking to her husband.
+*FAT:	www.
+%exp:	father is talking to his wife.
+%com:	child is pouring the glue on the paper.
+*MOT:	www.
+%exp:	mother is talking to her husband.
+*FAT:	www.
+%exp:	father is talking to his wife.
+*MOT:	www.
+%exp:	mother is talking to her husband.
+*FAT:	www.
+%exp:	father is talking to his wife.
+*SIS1:	www.
+%exp:	older daughter is talking to her sister.
+%com:	child is closing the glue.
+*CHI:	tseluiu@p minut'u@p.
+*SIS1:	tseluiu@p minut'u@p.
+*CHI:	ugu@p ut'ra@p i@l vechera@p dava@p davats'ebe k'argat [: k'argad]
+	[*p:w].
+*MOT:	www.
+%exp:	mother is talking to her husband.
+*FAT:	www.
+%exp:	father is talking to his wife.
+*CHI:	keti ar moadzvro gtkhov.
+*FAT:	www.
+%exp:	father is talking to his wife.
+*CHI:	ar moadzvro keti gtkhov dzlivs davats'ebe.
+*FAT:	www.
+%exp:	father is talking to his wife.
+*CHI:	dzalian tsot'a ts'ebo k'ide [: k'idev] [*p:w] mch'irdeba.
+*FAT:	www.
+%exp:	father is talking to his wife.
+*CHI:	ai dzaan [: dzalian] [*p:w] bevri ts'ebo mch'irdeba.
+%com:	child is opening the glue.
+*MOT:	www.
+%exp:	mother is talking to her daughters.
+*SIS1:	www.
+%exp:	older daughter is talking to her mother.
+*MOT:	www.
+%exp:	mother is talking to her daughters.
+*SIS1:	www.
+%exp:	older daughter is talking to her mother.
+*MOT:	www.
+%exp:	mother is talking to her older daughter.
+*SIS1:	www.
+%exp:	older daughter is talking to her mother.
+%com:	child is pouring the glue on the paper.
+*SIS1:	mate movrchet modi chats'eras maints aghar lap'arak'ob me mgoni da
+	kho?
+*CHI:	k'i ubralot [: ubralod] [*p:w] tsebos.
+*SIS1:	ts'ebos daanebe mate ra.
+*CHI:	da m@l unda davats'ebo ro [: rom] [*p:w] davkhat'o.
+*SIS1:	u@k bali@p ts'eboa eg dzalian asvelebs purtsels da.
+*CHI:	ara magari.
+*SIS1:	mere veghar khat'av ts'esierad amit'om ar ginda eg ts'ebo ra.
+*CHI:	imistvis vak'etep [: vak'eteb] [*p:w] ro [: rom] [*p:w]
+	teat'rts'ini@p gavak'eto.
+*MOT:	www.
+%exp:	mother is talking to her husband.
+*SIS1:	teat'rts'ini@p unda gaak'eto tu t'eat're@p tu tojinebis teat'ri?
+*CHI:	tojinebis teat'ri.
+*SIS1:	a@i tu ch@l chrdilis teat'ri.
+%com:	child is hitting his hands on the paper.
+*CHI:	chrdilis kho da vighatsam unda damich'iros shen.
+*SIS1:	ar gamova.
+*CHI:	da mariamma unda miq'uros.
+*SIS1:	ar gamova uime@i.
+*MOT:	www.
+%exp:	mother is talking to her little daughter.
+*CHI:	gamova.
+*MOT:	www.
+%exp:	mother is talking to her little daughter.
+*SIS2:	www.
+%exp:	the little daughter is talking to her mother.
+*CHI:	keti chans.
+*SIS2:	www.
+%exp:	the little daughter is talking to her mother.
+*CHI:	<keti>[x2] chans?
+%com:	child is showing the paper to his older sister.
+*SIS2:	www.
+%exp:	the little daughter is talking to her mother.
+*CHI:	keti chans?
+*MOT:	www.
+%exp:	mother is talking to her little daughter.
+*CHI:	teat'ri ts'ini@p.
+*SIS2:	www.
+%exp:	the little daughter is talking to her mother.
+*SIS1:	nakhe rogori svelia khedav, chans ts'iteli tavi?
+*CHI:	a@l k'i.
+*SIS1:	<dug@p>[x4] ai nakhe.
+*CHI:	ihi@i &=laughs.
+*SIS1:	<dugu@p>[x2] du@p.
+*CHI:	chans.
+*SIS1:	dug@p dugu@p dug@p d@l dn@p.
+*CHI:	ihi@i &=laughs.
+*SIS1:	din@p dr@p <din@p>[x2].
+*CHI:	<p'irim@p>[x2].
+*SIS1:	din@p dr@p <din@p>[x2].
+*CHI:	<p'i@p>[x6] chans?
+*SIS1:	ase.
+*CHI:	teat'ri.
+*SIS1:	vai@i.
+*CHI:	ts'ini@p ai.
+*FAT:	www.
+%exp:	father is talking to someone.
+*CHI:	vaime@i tsot'a ts'ebo mch'irdeba vaime@i.
+*BRA:	www.
+%exp:	the brother is talking to his father.
+*CHI:	keti sadats gavuk'ete ik k'i ar unda dav@p.
+*BRA:	www.
+%exp:	the brother is talking to his father.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*BRA:	www.
+%exp:	the brother is talking to his father.
+*CHI:	<vaime@i>[x2] keti.
+*BRA:	www.
+%exp:	the brother is talking to his father.
+*CHI:	vaime@i zust'at [: zust'ad] [*p:w].
+*BRA:	www.
+%exp:	the brother is talking to his father.
+*CHI:	gadmodis vaime@i.
+*BRA:	www.
+%exp:	the brother is talking to his father.
+*CHI:	ar gitkhari gaapuch'eb-tko [: gaapuch'eb-metki] [*p:w] q'velapers
+	damijere ege tsudi tseboa.
+*BRA:	www.
+%exp:	the brother is talking to his father.
+*SIS1:	sashinlad tsudi ch@l ts'eboa.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*BRA:	www.
+%exp:	the brother is talking to his father.
+*CHI:	mch'irdeba iseti sashineli tseboa.
+%com:	child is pouring the glue on the paper.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*BRA:	www.
+%exp:	the brother is talking to his father.
+*SIS1:	aha st'apilosperi, q'viteli, ts'iteli, shegilia [: shegidzlia]
+	[*p:w] uk've gamoiq'eno, me mts'vane mch'irdeba.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*SIS1:	modi vnakhot venakhi, sad ts'avida venakhi <mts'vane>[x4].
+*CHI:	keti chans?
+%com:	child is showing the paper to his older sister.
+*SIS1:	ager ak q'opila mts'vane.
+*CHI:	keti chans <p'a@p>[x2] rep'e@p re@p.
+*SIS1:	ar chans.
+*CHI:	bach'ia.
+*SIS1:	imit'o [: imit'om] [*p:w] ro [: rom] [*p:w] shuki aese [: ai ese]
+	[*p:w] unda enatebodes ekha [: akhla] [*p:w] midi gaak'ete.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*SIS1:	aekha [: ai akhla] [*p:w] chans khedav?
+*BRA:	www.
+%exp:	the brother is talking to his father.
+*CHI:	aha op'a@i.
+*SIS1:	chrdili.
+*CHI:	op'a@i ehe@p.
+*BRA:	www.
+%exp:	the brother is talking to his father.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*CHI:	ra magra [: magrad] [*p:w] gvinda teatrts'ini@p.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*SIS1:	h@k xxx &=sings.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*SIS1:	h@k ikh@i.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*BRA:	www.
+%exp:	the brother is talking to his father.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*BRA:	www.
+%exp:	the brother is talking to someone on the phone.
+*FAT:	www.
+%exp:	father is talking to someone on the phone.
+*BRA:	www.
+%exp:	the brother is talking to someone on the phone.
+*FAT:	www.
+%exp:	father is talking to someone on the phone.
+*BRA:	www.
+%exp:	the brother is talking to someone on the phone.
+*FAT:	www.
+%exp:	father is talking to someone on the phone.
+*CHI:	vots'i@p p'laichai@p.
+%com:	child is shaking the glue.
+*BRA:	www.
+%exp:	the brother is talking to someone on the phone.
+*FAT:	www.
+%exp:	father is talking to someone on the phone.
+*CHI:	keti unda davlio keti.
+*SIS1:	dalie midi.
+*CHI:	<uh@i>[x3].
+%com:	as if child is drinking the glue.
+*SIS1:	pu@i ts'ebo unda dalio?
+*CHI:	<uh@i>[x3] kho.
+*SIS1:	da mere k'uch'i migets'ep'eba [: migets'ebeba] [*p:w].
+*CHI:	eleksiria.
+*MOT:	www.
+%exp:	mother is talking to someone.
+*SIS1:	k'uch'i sach'mels miets'ebeba.
+*CHI:	eleksiria.
+*SIS1:	aha.
+*MOT:	www.
+%exp:	mother is talking to someone.
+*SIS2:	www.
+%exp:	the little daughter is talking to her mother.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*CHI:	rogori k'aia [: k'argia] [*p:w] uime@i.
+*BRA:	www.
+%exp:	the brother is talking to someone on the phone.
+*CHI:	mimets'eba.
+*BRA:	www.
+%exp:	the brother is talking to someone on the phone.
+*CHI:	mo@p.
+*SIS2:	www.
+%exp:	the little daughter is talking to her mother.
+*CHI:	h@i raghatsa ts'ebo dzaan [: dzalian] [*p:w] tsudia.
+%com:	child is opening the glue.
+*SIS2:	www.
+%exp:	the little daughter is talking to her mother.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*SIS2:	www.
+%exp:	the little daughter is talking to her mother.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*CHI:	pu@i.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*BRA:	www.
+%exp:	the brother is talking to his father.
+*CHI:	ba@i.
+*SIS1:	tsudi tseboa suni akvs kho?
+*CHI:	k'ak'aia@p xxx.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*SIS1:	suni ak [: akvs] [*p:w].
+%com:	child is smelling the glue.
+*CHI:	pu@i.
+*SIS1:	gitkhari sazizghroba ts'eboa.
+*CHI:	k'uk'is@p suni ak [: akvs] [*p:w].
+*SIS1:	kho sa@p shkhamis suni ak [: akvs] [*p:w].
+*FAT:	www.
+%exp:	father is talking to his older son.
+*CHI:	khu@i a@k.
+%com:	as if child is drinking the glue.
+*SIS2:	www.
+%exp:	little daughter is talking to her sister.
+*CHI:	ah@i.
+*BRA:	www.
+%exp:	the brother is talking to his father.
+*SIS2:	www.
+%exp:	little daughter is talking to her sister.
+*BRA:	www.
+%exp:	the brother is talking to his father.
+*SIS2:	www.
+%exp:	little daughter is talking to her sister.
+*CHI:	ihi@i <hi@i>[x2] &=laughs.
+*SIS1:	www.
+%exp:	older daughter is talking to her sister.
+*MOT:	www.
+%exp:	mother is talking to her older daughter.
+*SIS1:	www.
+%exp:	older daughter is talking to her sister.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*SIS2:	www.
+%exp:	little daughter is talking to her sister.
+*MOT:	www.
+%exp:	mother is talking to her older daughter.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*SIS2:	www.
+%exp:	little daughter is talking to her sister.
+%com:	child is standing from the chair.
+*CHI:	chans?
+*SIS2:	gache [: gacherdi] [*p:w] k'i.
+*CHI:	k'i chans.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*SIS2:	es iq'os sheni xxx tu ginda.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*CHI:	me?
+*SIS2:	kho.
+*CHI:	teat'ri ts'ini@p mets gavak'ete.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*CHI:	mariam shegilia [: shegidzlia] [*p:w] mets gamik'eto ega?
+*FAT:	www.
+%exp:	father is talking to his older son.
+*SIS2:	maseti?
+*CHI:	&=head:yes.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*SIS2:	magit vera.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*SIS1:	www.
+%exp:	older daughter is talking to her sister.
+*MOT:	www.
+%exp:	mother is talking to her older daughter.
+*SIS1:	www.
+%exp:	older daughter is talking to her mother.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*SIS2:	www.
+%exp:	little daughter is talking to her sister.
+*BRA:	www.
+%exp:	the brother is talking to his father.
+*CHI:	jer unda gashres.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*CHI:	<jer gashres>[x2].
+*SIS2:	ginda amaze uk'etesi gavak'eto k'ide [: k'idev] [*p:w] erti?
+%com:	child is putting the paper on the glue.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*SIS2:	oghond jokhi damch'irdeba romelzets davats'ebeb imas purtsels.
+*SIS1:	<p'ee@p>[x2] <p'am@p>[x2] p'a@p rira@p.
+%com:	child is standing from the chair.
+*SIS1:	n@k.
+*CHI:	<gamarjoba>[x3] <dzigi@p>[x5].
+*SIS1:	n@k.
+*CHI:	<dzigi@p>[x6] u@i.
+*BRA:	www.
+%exp:	the brother is talking to his father.
+*CHI:	kem@p keti ert [: erti] [*p:w] pekhsatsmelit  [: pekhsatsmlit]
+	[*p:w] dadis keti.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*SIS2:	xxx uk'atsravad.
+*SIS1:	mate shen ar chankhar me mgoni k'amerashi.
+*CHI:	<ta@p>[x7].
+*BRA:	www.
+%exp:	the brother is talking to his father.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*CHI:	<ta@p>[x6].
+*BRA:	www.
+%exp:	the brother is talking to his father.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*CHI:	sakhshi [: sakhlshi] [*p:w] shevida.
+*CHI:	keti.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*CHI:	chrdili sch'irdeba vitom sakhshi [: sakhlshi] [*p:w] shevida.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*CHI:	<t'a@p>[x2] rit'a@p ra <t'a@p>[x2] t'i@p <t'a@p>[x2].
+*FAT:	www.
+%exp:	father is talking to his older son.
+*CHI:	<t'a@p>[x2] t'i@p <t'a@p>[x2].
+%com:	child is going somewhere.
+*SIS1:	mate modi aka <modi>[x3] k'amera, mate gamovrtav kho.
+*CHI:	ara.
+*BRA:	www.
+%exp:	the brother is talking to his father.
+*SIS1:	k'i modi mashin aba, dask'up'di sk'amze.
+%com:	child is sitting down on the chair.
+*CHI:	keti damikhaze.
+*SIS1:	dagikhazo okh@i.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*CHI:	<t'a@p>[x5].
+*SIS1:	dagikhazav, au@i nu ts'ik'vineb ra, nu ch'q'vit'ineb ra.
+*BRA:	www.
+%exp:	the brother is talking to his father.
+*CHI:	keti ai sakhshi [: sakhlshi] [*p:w] shevida zolushk'a@p.
+*MOT:	vin shevida sakhlshi?
+*SIS1:	zolushk'a@p ihi@i &=laughs.
+*CHI:	ts'itelkuda.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*CHI:	vot'a@p <t'a@p>[x3].
+*SIS1:	vaime@i moitsade.
+*CHI:	vot'a@p <t'a@p>[x3].
+*SIS1:	ras ak'eteb aha.
+%com:	older sister is giving the paper to the child.
+*CHI:	vot'a@p <t'a@p>[x3].
+*FAT:	www.
+%exp:	father is talking to his older son.
+*CHI:	vot'a@p <t'a@p>[x3] keti damikhaze ih@i pu@i.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*SIS1:	ih@i.
+*CHI:	damikhaze ubblu@p.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*BRA:	www.
+%exp:	the brother is talking to his father.
+*CHI:	bla@p.
+*SIS1:	idzi@p.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*CHI:	i@i &=head:shake.
+*CHI:	aivanze kho ar gadavarda?
+*SIS1:	ih@i u@i.
+*MOT:	ra gadavarda k'atso aivanze?
+*SIS1:	andza aris ts'iteli tetri, ts'iteli midi gaikhede da shemodi.
+%com:	child is going on the balcony.
+*BRA:	www.
+%exp:	the brother is talking to his father.
+*CHI:	au@i.
+*SIS1:	eshma@p eshmak'is borbali shekhede xxx.
+*CHI:	au@i.
+*SIS1:	eshmak'is borbali gaaperade midi.
+%com:	child is coming in the room.
+*CHI:	peradi.
+%com:	child is sitting down on the chair.
+*SIS1:	ra aris peradi?
+*BRA:	www.
+%exp:	the brother is talking to his father.
+*CHI:	eshmakis brol@p bali@p.
+*CHI:	barem k'remi ts'avisva.
+*MOT:	www.
+%exp:	mother is talking to her husband.
+*FAT:	www.
+%exp:	father is talking to his mother.
+*CHI:	aimisi [: ai imisi] [*p:w].
+*FAT:	www.
+%exp:	father is talking to his older son.
+*CHI:	uh@i.
+%com:	child is taking the cream.
+*MOT:	www.
+%exp:	mother is talking to her older son.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*SIS2:	www.
+%exp:	the little daughter is talking to her mother.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*SIS2:	www.
+%exp:	the little daughter is talking to her mother.
+%com:	child is opening the cream.
+*SIS1:	www.
+%exp:	older daughter is talking to her sister.
+*SIS1:	mobail@p ejents@p tamashobs irak'li?
+*CHI:	kho.
+*SIS1:	xxx lejents@p.
+*BRA:	www.
+%exp:	the brother is talking to someone.
+*SIS1:	k'itkhe [: hk'itkhe] [*p:w] aba irak'lis xxx egents@p rat'o
+	[: rat'om] [*p:w] ar tamashobs.
+%com:	child is putting the cream on the finger and is closing it.
+*CHI:	ar unda.
+*BRA:	www.
+%exp:	the brother is talking to someone.
+*CHI:	k'rems visvam.
+%com:	child applies the cream on his hands.
+*BRA:	www.
+%exp:	the brother is talking to someone.
+*CHI:	k'rems visvav [: visvam] [*p:w] ro [: rom] [*p:w] ch'uchq'ebi
+	ts'avides andzi@p bakt'eria.
+*SIS1:	rame kho ar gisvia martla?
+*CHI:	k'remi.
+*BRA:	www.
+%exp:	the brother is talking to someone.
+*SIS1:	martla gisvia?
+*CHI:	&=head:yes.
+*BRA:	www.
+%exp:	the brother is talking to someone.
+*SIS1:	<martla>[x2]?
+*CHI:	ai esa.
+*SIS1:	au@i rat'o [: rat'om] [*p:w] ts'aisvi ra kho ar gch'irdeba pu@i ba@i.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*CHI:	ants'ibakteriai@p.
+*SIS1:	ants'ibakt'eriana@p idzakhe da mogets'amleba khelebi.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*SIS1:	tu be@p bevrs ts'aisvam ar sheileba [: sheidzleba] [*p:w].
+*CHI:	tsot'a ts'avisvi.
+*BRA:	www.
+%exp:	the brother is talking to someone.
+*SIS1:	ar ari [: aris] [*p:w] k'argi ar ari [: aris] [*p:w] sasargeblo
+	mart'o tu gch'irs raghatsa khelze da shen gch'irs rame khelze?
+*CHI:	k'i ch'uch'q'ebi mak [: makvs] [*p:w].
+*BRA:	www.
+%exp:	the brother is talking to someone.
+*SIS1:	ch'uch'q'ebi unda daibano unda dezinpektsia unda daiskha.
+*CHI:	vitom dezinpektsiaa esa.
+*SIS1:	eg dezinpektsia ar ari [: aris] [*p:w] magashia sakme eg ari
+	[: aris] [*p:w] k'remi, ai ekha [: akhla] [*p:w] ra sazizghroba
+	kha@p pankrebs ar mok'ido pu@i vaime@i sheni ch'irime ar mok'ido.
+*CHI:	davibano?
+*SIS1:	kho ts'adi <midi>[x3].
+*CHI:	chust'i.
+*SIS1:	vsio@p me manamde gamovrtav kho <p'a@p>[x3]?
+*CHI:	ro [: rom] [*p:w] moval charte.
+*FAT:	www.
+%exp:	father is talking to his older son.
+*SIS1:	p'am@p oru@i.
+*CHI:	keti ro [: rom] [*p:w] moval.
+*SIS1:	morcha gveq'opa chats'era kho.
+*CHI:	ara.
+*SIS1:	mashin k'ide [: k'idev] [*p:w] ramdenime ts'ami iq'avi da k'ak'raz@p
+	tkhutmet'i ts'uti gamova kho?
+*CHI:	ih@i.
+%com:	child is looking for the slippers.
+*BRA:	www.
+%exp:	the brother is talking to someone.
+*CHI:	keti.
+*SIS1:	ormotsi ts'ami k'ide [: k'idev] [*p:w] k'adrshi iq'avi.
+*CHI:	keti mashi@p mashin tsamoighe ega.
+*BRA:	www.
+%exp:	the brother is talking to someone.
+*SIS1:	sad ts'amovigho k'atso?
+*CHI:	samzareuloshi.
+*SIS1:	samzareuloshi.
+*CHI:	t'ualet'shi.
+*SIS1:	tu t'ualet'shi?
+*CHI:	t'ualet'shi.
+%com:	child is going to the toilet.
+*SIS1:	modi gamovrtav ra.
+*CHI:	o@i xxx.
+*MOT:	www.
+%exp:	mother is talking to someone.
+*SIS1:	k'ai [: k'argi] [*p:w].
+*CHI:	ih@i.
+%com:	child is opening the door.
+*CHI:	t'ualet'shi.
+*FAT:	www.
+%exp:	father is talking to someone.
+*CHI:	da mogq've xxx ip'oves.
+*MOT:	www.
+%exp:	mother is talking to someone.
+%com:	child admits the tap.
+*CHI:	vaime@i keti ui@i r@l ra devs amashi?
+%com:	child is washing his hands.
+*CHI:	ra k'argat [: k'argad] [*p:w] viban sap'oni ts'avisva, ha?
+*SIS1:	ts'aisvi aba.
+*CHI:	vai@i.
+*SIS1:	o@i modi gamovrtav k'argi?
+*CHI:	ara.
+*SIS1:	au@i rat'o [: rat'om] [*p:w]?
+*CHI:	barem chavits'erot tkhutmet'i ts'uti.
+*SIS1:	tkhutmet'i ts'uti k'ak'raz@p akhla ari [: aris] [*p:w].
+*MOT:	www.
+%exp:	mother is talking to her older daughter.
+*MOT:	ras ak'eteb mate?
+*CHI:	khelebs viban.
+*MOT:	ra khdeba khelebs rat'o [: rat'om] [*p:w] iban, ras se@p riti
+	[: rit] [*p:w] daisvare?
+*SIS1:	k'remi ts'aisva mariamisi.
+*MOT:	ui@i.
+%com:	child is drying his hands.
+*SIS1:	www.
+%exp:	older daughter is talking to her mother.
+*MOT:	www.
+%exp:	mother is talking to her older daughter.
+*FAT:	www.
+%exp:	father is talking to someone.
+*CHI:	keti.
+%com:	child is going to the bed room.
+*CHI:	damikhaze.
+*BRA:	www.
+%exp:	the brother is talking to someone.
+*CHI:	mariam sheni ts'itelkuda me ts'avighe sakhshi.
+*SIS2:	me ro [: rom] [*p:w] mch'irdeba da k'ide [: k'idev] [*p:w]
+	<mna@p>[x5] esa da m@i.
+*FAT:	www.
+%exp:	father is talking to someone.
+*SIS2:	vso@p met'i araperi.
+*SIS2:	www.
+%exp:	little daughter is talking to her sister.
+*SIS1:	www.
+%exp:	older daughter is talking to her sister.
+*CHI:	xxx k'aa@p.
+*SIS2:	www.
+%exp:	little daughter is talking to her sister.
+%com:	child is going on the chair.
+*SIS1:	www.
+%exp:	older daughter is talking to her sister.
+*SIS2:	www.
+%exp:	little daughter is talking to her sister.
+*SIS1:	www.
+%exp:	older daughter is talking to her sister.
+*SIS2:	www.
+%exp:	little daughter is talking to her sister.
+*BRA:	www.
+%exp:	the brother is talking to someone.
+*SIS2:	www.
+%exp:	little daughter is talking to her sister.
+*FAT:	www.
+%exp:	father is talking to someone.
+*SIS1:	www.
+%exp:	older daughter is talking to her sister.
+*FAT:	www.
+%exp:	father is talking to someone.
+*SIS2:	www.
+%exp:	little daughter is talking to her sister.
+*CHI:	p'ara@p p'am@p.
+*FAT:	www.
+%exp:	father is talking to someone.
+*CHI:	p'ara@p <pam@p>[x2] <p'ram@p>[x6].
+*FAT:	www.
+%exp:	father is talking to someone.
+*SIS1:	ras mgherikhar [: mgheri] [*p:w] dajeki tore [: torem] [*p:w] ar
+	chankhar ts'esierad?
+*FAT:	www.
+%exp:	father is talking to someone.
+*CHI:	damikhaze.
+*BRA:	www.
+%exp:	the brother is talking to someone.
+*CHI:	ro [: rom] [*p:w] unda damikhazo?
+*SIS1:	ara.
+*CHI:	dagavitsq'da ha?
+*SIS1:	ro [: rom] [*p:w] ar minda ro [: rom] [*p:w] dagikhazo?
+*CHI:	damikhaze gtkhov piz@p <ih@i>[x2] keti damikhaze keti &=yells.
+*CHI:	damikhaze.
+*SIS1:	nu miq'virikhar [: miq'viri] [*p:w] mere.
+*CHI:	keti damikhaze-tko [: damikhaze-metki] [*p:w] pu@i k'ak'aia@p
+	k'at'ust'imitsa@p.
+%com:	child is catching his fingers to his nose.
+*CHI:	t'rusik'ebi [: satsvlebi] [*p:w] devs.
+*SIS1:	mere ra?
+*CHI:	tsudi suni ak [: akvs] [*p:w].
+*SIS1:	araperi ara akvs tsudi suni k'atso.
+*CHI:	p'u@p <t'a@p>[x3].
+*SIS1:	ukhmarebi da gaukhsnelia.
+*CHI:	p'u@p <t'a@p>[x3].
+*SIS1:	da gachumdi ra.
+*CHI:	<p'a@p>[x4] gakhsnilia.
+*SIS1:	gakhsnilia mara [: magram] [*p:w] ar ari [: aris] [*p:w] amoghebuli.
+*CHI:	keti.
+*SIS1:	imit'o [: imit'om] [*p:w] ar ari [: aris] [*p:w] chatsmuli da
+	gachumdi da nughar bodialob.
+*FAT:	www.
+%exp:	father is talking to someone.
+*CHI:	keti uh@i.
+*FAT:	www.
+%exp:	father is talking to someone.
+*CHI:	keti damikhaze-tko [: damikhaze-metki] [*p:w].
+*FAT:	www.
+%exp:	father is talking to someone.
+%com:	child is banging the wardrobe.
+*CHI:	ai keti zustat [: zustad] [*p:w] ai aseti minda.
+%com:	child is going to his older sister and is showing something.
+*SIS1:	ik kho ari [: aris] [*p:w] purtselze dakhazuli da purtselze rats ari
+	[: aris] [*p:w] eg gaaperade ra.
+*CHI:	agh@p shenna@p.
+*FAT:	www.
+%exp:	father is talking to someone.
+*CHI:	shennairi minda ai eseti.
+*SIS1:	rat [: rad] [*p:w] ginda chemnairi?
+*CHI:	gtkhov.
+*FAT:	www.
+%exp:	father is talking to someone.
+*SIS1:	xxx purtselze zust'at [: zust'ad] [*p:w] chemnairia.
+*FAT:	www.
+%exp:	father is talking to someone.
+*CHI:	ara ai es shennairi ar aris sheadare.
+%com:	child is bringing the paper to his older sister.
+*SIS1:	zust'at [: zust'ad] [*p:w] chemnairia mate.
+*FAT:	www.
+%exp:	father is talking to someone.
+*CHI:	ara sheadare.
+*SIS1:	akhla ver dagikhazav magis dakhazva tsot'a dznelia tsaighe.
+*CHI:	damikh@p.
+%com:	child is catching his fingers on his nose.
+*SIS1:	puh@i ts'ebovania ba@i.
+*CHI:	<be@p>[x4].
+*SIS1:	pu@i be@i.
+*CHI:	shignit aak [: akvs] [*p:w].
+*SIS1:	h@k.
+*CHI:	qvesh shegilia [: shegidzlia] [*p:w] mok'ido svelia.
+*SIS1:	me mgoni mariamma tsisperi ts'aigho, mate vsio@p movrchebi
+	chats'eras.
+*CHI:	rat'o [: rat'om] [*p:w]?
+*SIS1:	sami.
+*CHI:	ara.
+*SIS1:	ori.
+*CHI:	ar.
+*SIS1:	er@p.
+@End
