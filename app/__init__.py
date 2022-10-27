@@ -1,6 +1,6 @@
 from flask import Flask
 from app.extensions import db, migrate, login_manager, csrf, admin, mail
-from app.views.admin_panel.views import File_View, UserView, LogoutView, LoginView, FilesView, AboutPageView
+from app.views.admin_panel.views import File_View, UserView, LogoutView, LoginView, FilesView, AboutPageView, MainPageView
 from app.views.main.models import Role, User, File, AboutPage
 from app.views.main.views import user_blueprint
 from app.views.admin_panel.uploads_view import admin_upload_bp
@@ -42,16 +42,18 @@ def register_blueprints(application):
 
 
 def register_admin(app):
-    admin.add_view(UserView(User, db.session, name='მომხმარებელი', endpoint='users', category='მომხმარებლები'))
+    admin.add_view(UserView(User, db.session, name='მომხმარებელი', endpoint='users',))
     # add log out view to admin panel
     # files upload
-    admin.add_view(FilesView(User, db.session, name='ფაილების ატვირთვა', endpoint='files', category='ფაილები'))
-    admin.add_view(File_View(File, db.session, name='ფაილები'))
+    admin.add_view(FilesView(User, db.session, name='ფაილების ატვირთვა', endpoint='files'))
+    admin.add_view(File_View(File, db.session, name='ფაილების მოდელები'))
 
     # about page view
-    admin.add_view(AboutPageView(AboutPage, db.session, name='ჩვენს შესახებ', endpoint='about', category='გვერდები'))
+    admin.add_view(AboutPageView(AboutPage, db.session, name='ჩვენს შესახებ', endpoint='about'))
     admin.add_view(LoginView(Role, db.session, name='შესვლა'))
-    admin.add_view(LogoutView(User, db.session, name='გასვლა'))
+    # go to index page 
+    admin.add_view(MainPageView(User, db.session, name='მთავარი გვერდი'))
+    #admin.add_view(LogoutView(User, db.session, name='გასვლა'))
     admin.init_app(app)
 
 

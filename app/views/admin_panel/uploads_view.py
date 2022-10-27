@@ -26,10 +26,13 @@ def upload_file():
             try:
                 f = form.file.data
                 yt_link = form.yt_link.data
+                yt_link_id = yt_link.split('=')[1].split('&')[0]
+                embed_yt_link = "https://www.youtube.com/embed/" + str(yt_link_id)
+                print(embed_yt_link)
                 print(f)
                 # if file already exists in database redirect file upload page
-                check_file = File.already_exists(f.filename) or File.already_exists_yt(yt_link)
-                print(File.already_exists(f.filename), File.already_exists_yt(yt_link))
+                check_file = File.already_exists(f.filename) or File.already_exists_yt(embed_yt_link)
+                print(File.already_exists(f.filename), File.already_exists_yt(embed_yt_link))
                 if not check_file:
                     ten_number = [i for i in range(0, 10)]
                     file_name = f.filename
@@ -46,7 +49,7 @@ def upload_file():
                         os.makedirs(child_folder)
                     filename = secure_filename(file_name)
                     f.save(os.path.join(child_folder, filename))
-                    file_model = File(file_name=filename, yt_link=form.yt_link.data)
+                    file_model = File(file_name=filename, embed_yt_link=embed_yt_link, yt_link_id=yt_link_id)
                     file_model.create()
                     
                     flash('ფაილი აიტვირთა წარმატებით!', 'success')
