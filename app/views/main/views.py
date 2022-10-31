@@ -39,24 +39,22 @@ def index():
     #     first_file_delete.delete()
     about = AboutPage.get_by_id(1)
     return render_template('index.html', about=about)
+
+
 @user_blueprint.route('/create-roles')
 def create_roles():
     Role.create_roles()
     return 'roles created'
 
 
-
 @user_blueprint.route('/<string:child_name>')
 @login_required
 def child(child_name):
-    #mat_folder = os.path.join(STATIC_FODLER, 'uploads', 'cha', 'MAT')
-    #print(os.listdir(mat_folder))
     # get all object from Files model where 'MAT' is in file name
     files = File.query.filter(File.file_name.like(f'%{child_name}%')).all()
     if not files:
         flash('არ არსებობს ამ ბავშვის ფაილები')
         return redirect(url_for('user_blueprint.index'))
-    print(files)
     return redirect(url_for('user_blueprint.child_files', file=files[0].file_name, child_name=child_name))
 
 
@@ -161,6 +159,7 @@ def file(file_name):
 
     return file_data
 
+
 @user_blueprint.route('/login',  methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
@@ -169,7 +168,6 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
         if user is not None and user.verify_password(form.password.data):
-
             login_user(user, form.remember.data)
             return redirect(request.args.get('next') or url_for('user_blueprint.index'))
         else:
