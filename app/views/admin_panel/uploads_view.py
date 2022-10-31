@@ -9,12 +9,7 @@ from app.config import STATIC_FODLER, ADMIN_PANEL_TEMPLATES
 from app.utils import is_admin
 
 
-
-
-
 admin_upload_bp = Blueprint('admin_upload_bp', __name__, template_folder=ADMIN_PANEL_TEMPLATES, static_folder=STATIC_FODLER, url_prefix='/admin-uploads')
-
-
 
 
 @admin_upload_bp.route('/', methods=['GET', 'POST'])

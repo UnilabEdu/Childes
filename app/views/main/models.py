@@ -1,10 +1,9 @@
 from app.config import Config
 from app.extensions import db
-from flask_login import UserMixin, AnonymousUserMixin, current_user
+from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 import jwt
 from time import time
-import os
 
 
 class User(db.Model, UserMixin):
@@ -12,14 +11,22 @@ class User(db.Model, UserMixin):
     first_name = db.Column(db.String(80), unique=False, nullable=False)
     last_name = db.Column(db.String(80), unique=False, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    password = db.Column(db.String(120), unique=False, nullable=False)
+    _password = db.Column('password', db.String(120), unique=False, nullable=False)
     roles = db.relationship('Role', secondary='user_roles')
+
+    def _get_password(self):
+        return self._password
+
+    def _set_password(self, password):
+        self._password = generate_password_hash(password)
+
+    password = db.synonym('_password', descriptor=property(_get_password, _set_password))
 
     def __init__(self, first_name, last_name, email, password):
         self.first_name = first_name
         self.last_name = last_name
         self.email = email
-        self.password = generate_password_hash(password)
+        self.password = password
 
     # create create method
     @classmethod
@@ -53,10 +60,9 @@ class User(db.Model, UserMixin):
         return 'admin' in [role.name for role in self.roles]
 
     def verify_password(self, password):
-        return self.password == password
+        return check_password_hash(self.password, password)
 
     def get_reset_token(self, expires=30):
-        print(os.environ.get('MAIL_PASSWORD'))
         return jwt.encode({'reset_password': self.email,
                            'exp': time() + expires},
                           key=Config.SECRET_KEY)
@@ -66,9 +72,8 @@ class User(db.Model, UserMixin):
         try:
             email = jwt.decode(token,
                                key=Config.SECRET_KEY,algorithms=['HS256'])['reset_password']
-
         except Exception as e:
-            print(e,'giorgi')
+            print(e)
             return
         return User.query.filter_by(email=email).first()
 

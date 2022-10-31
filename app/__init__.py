@@ -37,7 +37,6 @@ def register_extensions(app):
 # Register blueprints
 def register_blueprints(application):
     for bp in BLUEPRINTS:
-        print(bp)
         application.register_blueprint(bp)
 
 
