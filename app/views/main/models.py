@@ -120,6 +120,13 @@ class File(db.Model):
     def strip(self, child_name):
         return self.file_name.strip(child_name).strip('.cha')
 
+    def only_child_name(self, child_name):
+        ten_number = [i for i in range(0, 10)]
+        for num in ten_number:
+            child_name = child_name.replace(str(num), '')
+        ony_child = child_name.replace('.cha', '')
+
+        return ony_child
     # create method already_exists with file_name
     @classmethod
     def already_exists(cls, file_name):
