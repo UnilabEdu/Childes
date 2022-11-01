@@ -28,6 +28,11 @@
         }
       }
 
+      &.flex-row {
+        justify-content: space-between;
+        align-items: center;
+      }
+
       a {
         font-size: $fs-xs;
         text-decoration: underline;
