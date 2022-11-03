@@ -11,6 +11,7 @@
   }
 
   h1 {
+    margin: 0;
     font-family: $ff-nunitomedium;
     font-size: $fs-l;
     font-weight: 500;
@@ -24,7 +25,9 @@
 
   ul {
     position: absolute;
+    top: 50%;
     right: 15%;
+    transform: translateY(-50%);
     gap: 2.4rem;
 
     a {
