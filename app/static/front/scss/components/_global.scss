@@ -8,6 +8,10 @@
   &__wrapper {
     position: relative;
     justify-content: space-between;
+
+    @media (max-width: 550px) {
+      justify-content: flex-end;
+    }
   }
 
   h1 {
@@ -16,6 +20,11 @@
     font-size: $fs-l;
     font-weight: 500;
     color: $clr-grey-primary;
+
+    @media (max-width: 550px) {
+      background-color: red;
+      display: none;
+    }
 
     span {
       font-family: $ff-nunitobold;
