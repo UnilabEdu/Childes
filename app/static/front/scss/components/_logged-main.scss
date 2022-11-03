@@ -74,12 +74,21 @@
     margin-top: 2rem;
     padding-left: 2rem;
 
+    
     li {
       position: relative;
       list-style: none;
       line-height: 1.25rem;
       font-family: $ff-nunitomedium;
       font-weight: 400;
+      
+      &:nth-child(1),
+      &:nth-child(3) {
+
+        span {
+          font-weight: 400;
+        }
+      }
 
       span {
         font-family: $ff-nunitobold;
@@ -159,6 +168,20 @@
 
 // aside styles
 .aside {
+
+  &__title {
+
+      a {
+        color: $clr-darkgrey;
+        
+        &:hover {
+          font-weight: 700;
+          color: $clr-darkgrey;
+        }
+      }
+  }
+
+
   .logged-in-ul {
     position: relative;
     border-radius: 6px;
@@ -235,6 +258,12 @@
       background-color: $clr-lightgrey;
       border-radius: 4px;
       cursor: pointer;
+
+      img {
+        position: absolute;
+        left: -10px;
+        border-radius: 4px;
+      }
 
       a {
         position: absolute;
