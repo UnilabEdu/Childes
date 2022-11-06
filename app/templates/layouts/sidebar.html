@@ -1,0 +1,77 @@
+{% if not current_user.is_authenticated %}
+<aside class="aside">
+    <div class="aside__wrapper">
+        <div class="aside__title flex-row">
+            <a href="{{ url_for('main_blueprint.index') }}" class="active">childes</a>
+            <span></span>
+        </div>
+        <ul>
+            <li><a href="{{ url_for('main_blueprint.index') }}">ქართული</a></li>
+        </ul>
+    </div>
+</aside>
+{% elif request.endpoint == "main_blueprint.child_files" %}
+<aside class="aside">
+    <div class="aside__wrapper">
+        <div>
+            <div class="aside__title flex-row">
+                <a href="{{ url_for('main_blueprint.index') }}">childes</a>
+                <span></span>
+                <a href="{{ url_for('main_blueprint.index') }}">ქართული</a>
+                <span></span>
+                <a href="#" class="active">{{child_name}}</a>
+            </div>
+            <ul class="logged-in-ul video-list">
+                <div class="list-wrapper">
+                    {% for file in child_files %}
+                    <li>
+                        <a href="{{url_for('main_blueprint.child_files', child_name=child_name, file=file)}}">{{file.strip(child_name)}}</a>
+                        <a href="{{url_for('main_blueprint.file', file_name=file)}}" target="_blank"><img
+                                src="{{url_for('static',filename='images/text.png')}}"
+                                alt="document-icon"></a>
+                        <a href="{{one_file.embed_yt_link}}" target="_blank"><img
+                                src="{{url_for('static',filename='images/video.png')}}"
+                                alt="video-icon"></a>
+                    </li>
+                    {% endfor %}
+                </div>
+            </ul>
+        </div>
+        <div class="aside__video">
+            <div class="aside__video-main">
+                <iframe src="{{one_file.embed_yt_link}}" width=100% height=100% style="overflow:hidden;"
+                        scrolling="no"></iframe>
+            </div>
+            <div class="aside__thumbnail-videos">
+                <ul class="flex-row">
+                    {% for file in first_five_file %}
+                    <li>
+                        <img style="width: 100%; height: 100%"
+                             src="https://img.youtube.com/vi/{{file.yt_link_id}}/0.jpg" alt="thumb">
+                        <a href="{{ url_for('main_blueprint.child_files', child_name=file.only_child_name(file.file_name), file=file.file_name) }}">Video:
+                            020510</a>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</aside>
+{% else %}
+<aside class="aside">
+    <div class="aside__wrapper">
+        <div class="aside__title flex-row">
+            <a href="{{ url_for('main_blueprint.index') }}" style="text-decoration: none;">childes</a>
+            <span></span>
+            <a href="{{ url_for('main_blueprint.index') }}" class="active">ქართული</a>
+            <span></span>
+        </div>
+        <ul class="logged-in-ul">
+            <li class="grey-li"><a href="{{ url_for('main_blueprint.child', child_name='ALE') }}">ALE</a></li>
+            <li class="grey-li"><a href="{{ url_for('main_blueprint.child', child_name='GAB') }}">GAB</a></li>
+            <li class="grey-li"><a href="{{ url_for('main_blueprint.child', child_name='ANA') }}">ANA</a></li>
+            <li class="grey-li"><a href="{{ url_for('main_blueprint.child', child_name='MAT') }}">MAT</a></li>
+        </ul>
+    </div>
+</aside>
+{% endif %}

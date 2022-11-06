@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" file="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Childes</title>
+</head>
+<body>
+<div class="container">
+    {% if not current_user.is_authenticated %}
+        <div class="wrapper">
+    {% elif request.endpoint == "main_blueprint.child_files" %}
+        <div class="wrapper-logged-main">
+    {% else %}
+        <div class="wrapper-logged">
+     {% endif %}
+
+        <!-- header -->
+        <header class="header">
+            <div class="header__wrapper flex-row">
+                <h1><span>TalkBank:</span> CHILDES</h1>
+                <ul class="flex-row">
+                    <a href="{{ url_for('main_blueprint.index') }}">homepage</a>
+                    <a href="{{ url_for('main_blueprint.index') }}#goal-section">about</a>
+                    <a href="{{ url_for('main_blueprint.index') }}#instructions-section">instruction</a>
+                    {% if current_user.is_authenticated %}
+                    <a href="{{ url_for('user_blueprint.logout') }}">logout</a>
+                    {% endif %}
+                    {% if current_user.is_admin %}
+                    <a href="{{ url_for('admin.index') }}">Admin</a>
+                    {% endif %}
+                </ul>
+                <a href="{{ url_for('user_blueprint.login') }}" class="user-img">
+                    <img src="{{url_for('static',filename='images/user.png')}}" alt="user">
+                </a>
+            </div>
+        </header>
+        {% block content %}
+
+        {% endblock content %}
+        {% include "layouts/sidebar.html" %}
+        {% include "layouts/modal.html" %}
+        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/reset-psw.js') }}"></script>
+        <script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+
+    </div>
+</div>
+</div>
+</body>
+</html>
