@@ -8,13 +8,23 @@
   &__wrapper {
     position: relative;
     justify-content: space-between;
+
+    @media (max-width: 550px) {
+      justify-content: flex-end;
+    }
   }
 
   h1 {
+    margin: 0;
     font-family: $ff-nunitomedium;
     font-size: $fs-l;
     font-weight: 500;
     color: $clr-grey-primary;
+
+    @media (max-width: 550px) {
+      background-color: red;
+      display: none;
+    }
 
     span {
       font-family: $ff-nunitobold;
@@ -24,7 +34,9 @@
 
   ul {
     position: absolute;
+    top: 50%;
     right: 15%;
+    transform: translateY(-50%);
     gap: 2.4rem;
 
     a {
