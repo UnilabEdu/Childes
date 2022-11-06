@@ -1,7 +1,5 @@
 from flask import redirect, render_template, url_for, Blueprint,flash
 from flask_login import login_required
-
-
 from app.config import UPLOADS_FOLDER, TEMPLATE_FOLDER
 from app.views.main.models import AboutPage, File
 import os
@@ -17,7 +15,7 @@ def index():
     return render_template('main/index.html', about=about)
 
 
-@main_blueprint.route('/<string:child_name>')
+@main_blueprint.route('/child/<string:child_name>')
 @login_required
 def child(child_name):
     # get all object from Files model where 'MAT' is in file name
@@ -28,20 +26,19 @@ def child(child_name):
     return redirect(url_for('main_blueprint.child_files', file=files[0].file_name, child_name=child_name))
 
 
-@main_blueprint.route('/<string:child_name>/<string:file>')
+@main_blueprint.route('/child/<string:child_name>/<string:file>')
 @login_required
 def child_files(child_name, file):
-    child_files = File.query.filter(File.file_name.like(f'%{child_name}%')).all()
-    child_files_with_file_name = File.query.filter(File.file_name.like(f'%{file}%')).first()
-    first_five_file = child_files[:5]
-    if not child_files or not child_files_with_file_name:
+    child_all_files = File.query.filter(File.file_name.like(f'%{child_name}%')).all()
+    cha_filename = File.query.filter(File.file_name.like(f'%{file}%')).first()
+    next_files = File.query.filter(File.file_name.like(f'%{child_name}%')).offset(cha_filename.id).limit(5).all()
+
+    if not child_all_files or not cha_filename:
         flash('არასწორი მოთხოვნა, სცადეთ თავიდან')
         return redirect(url_for('main_blueprint.index'))
 
-    current_url = f"/{child_name}/{child_files_with_file_name.file_name.strip(child_name).strip('.cha')}"
-    cha_file = os.path.join(UPLOADS_FOLDER, 'cha', child_name.upper())
-
-    with open(os.path.join(cha_file, file), 'r') as f:
+    cha_file_dir = os.path.join(UPLOADS_FOLDER, 'cha', child_name.upper())
+    with open(os.path.join(cha_file_dir, file), 'r') as f:
         lines = f.readlines()
 
         file_head_data ={'head': [], 'ID': []}
@@ -53,28 +50,24 @@ def child_files(child_name, file):
                 file_head_data['ID'].append(parsed_line[1].split('|'))
             if 'Date' in parsed_line[0]:
                 date = parsed_line[1].split('|')[0]
+
             if '*' not in parsed_line[0] and '' != parsed_line[0] and '%' not in parsed_line[0] and 'End' != parsed_line[0]:
                 file_head_data['head'].append(parsed_line)
             else:
-                if '' == line.strip('*').strip('%').strip('@').strip('\n').split('\t')[0] and len(file_main_data['main']) > 0:
-                    file_main_data['main'][-1][1] += line.strip('*').strip('%').strip('@').strip('\n').split('\t')[1]
-                if line.strip('*').strip('%').strip('@').strip('\n').split('\t')[0] != '':
+                parsed_line = line.strip('*').strip('%').strip('@').strip('\n').split('\t')
+                if '' == parsed_line[0] and len(file_main_data['main']) > 0:
+                    file_main_data['main'][-1][1] += parsed_line[1]
+                if parsed_line[0] != '':
                     file_main_data['main'].append(line.strip('*').strip('%').strip('@').strip('\n').split('\t'))
 
-
-    # print(file_head_data['ID'])    
-
     return render_template('main/chafile_view.html',
-                           files=child_files,
-                           file=file,
                            child_name=child_name,
-                           one_file=child_files_with_file_name,
+                           one_file=cha_filename,
                            file_head_data=file_head_data,
                            file_main_data=file_main_data,
-                           current_url=current_url,
                            date=date,
-                           child_files=child_files,
-                           first_five_file=first_five_file)
+                           child_files=child_all_files,
+                           first_five_file=next_files)
 
 
 @main_blueprint.route('/cha/<string:file_name>')

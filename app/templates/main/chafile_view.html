@@ -21,11 +21,11 @@
                     </tr>
                     <tr>
                         <td class="flex-row"><a class="chat"
-                                                href="{{url_for('main_blueprint.file', file_name=file)}}"
-                                                target="_blank">{{file.strip(child_name).strip('.cha')}}</a>
+                                                href="{{url_for('main_blueprint.file', file_name=one_file.file_name)}}"
+                                                target="_blank">{{one_file.file_name.strip(child_name).strip('.cha')}}</a>
                         </td>
-                        <td class="flex-row">{{current_url}}</td>
-                        <td class="flex-row">{{file.strip(child_name).strip('.cha')}}</td>
+                        <td class="flex-row">{{ request.path.strip('.cha') }}</td>
+                        <td class="flex-row">{{one_file.file_name.strip(child_name).strip('.cha')}}</td>
                         <td class="flex-row">ქართული</td>
                         <td class="flex-row">video</td>
                         <td class="flex-row">video</td>
