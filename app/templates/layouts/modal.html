@@ -1,0 +1,14 @@
+<dialog class="modal flex-column">
+    <div class="modal__icons">
+        <div class="modal__info">
+            <img src="{{url_for('static',filename='images/modal-info.png')}}" alt="info">
+        </div>
+        <div class="modal__close" onclick="closeModal(modal)">
+            <img src="{{url_for('static',filename='images/x-circle.png')}}" alt="close">
+        </div>
+    </div>
+    <p>ძვირფასო მომხმარებელო,<br>
+        ვებსაიტის გამოყენება რეკომენდებულია კომპიუტერიდან.
+    </p>
+    <button onclick="closeModal(modal)">გასაგებია</button>
+</dialog>

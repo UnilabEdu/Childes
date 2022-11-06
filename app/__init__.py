@@ -1,17 +1,16 @@
-from flask import Flask
+from flask import Flask, flash, url_for, redirect
 from app.extensions import db, migrate, login_manager, csrf, admin, mail
 from app.views.admin_panel.views import File_View, UserView, LogoutView, LoginView, FilesView, AboutPageView, MainPageView
-from app.views.main.models import Role, User, File, AboutPage
-from app.views.main.views import user_blueprint
+from app.views.main.models import File, AboutPage
+from app.views.auth.models import Role, User
+from app.views.main.views import main_blueprint
 from app.views.admin_panel.uploads_view import admin_upload_bp
+from app.views.auth.views import user_blueprint
 from app.config import Config, DevConfig, ProdConfig
 from app.config import STATIC_FODLER as static_folder, BASEDIR
 import os
 
-UPLOADS_FOLDER_in_static_folder = os.path.join(BASEDIR)
-print(static_folder)
-
-BLUEPRINTS = [user_blueprint, admin_upload_bp]
+BLUEPRINTS = [main_blueprint, user_blueprint, admin_upload_bp]
 
 
 # Create Flask application
@@ -21,6 +20,7 @@ def create_app():
     register_extensions(app)
     register_blueprints(app)
     register_admin(app)
+    register_errorhandlers(app)
     return app
 
 
@@ -38,6 +38,18 @@ def register_extensions(app):
 def register_blueprints(application):
     for bp in BLUEPRINTS:
         application.register_blueprint(bp)
+
+
+def register_errorhandlers(app):
+    @app.errorhandler(404)
+    def page_not_found(e):
+        flash('ეს გვერდი არარსებობს!')
+        return redirect(url_for('main_blueprint.index'))
+
+    @app.errorhandler(500)
+    def internal_server_error(e):
+        flash('სერვერის შეცდომა!')
+        return redirect(url_for('main_blueprint.index'))
 
 
 def register_admin(app):

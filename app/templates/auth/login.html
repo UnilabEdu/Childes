@@ -1,0 +1,49 @@
+{% extends "layouts/main.html" %}
+{% block content %}
+{% from "_formhelpers.html" import render_field %}
+
+<main class="main">
+    <div class="main__wrapper">
+        <p class="auth-para">სისტემაში შესასვლელად გთხოვთ, გაიაროთ ავტორიზაცია</p>
+        <form action="{{ url_for('user_blueprint.login') }}" class="main__form flex-column" autocomplete="off"
+              method=post>
+            {{ form.hidden_tag() }}
+
+            <div class="main__form-field flex-column">
+                <label for="email">ელ-ფოსტა:</label>
+                {{ render_field(form.email) }}
+            </div>
+
+            <div class="main__form-field flex-column">
+                <label for="password">პაროლი:</label>
+                {{ render_field(form.password) }}
+                <button class="hide-password flex-row" type="button"
+                        onclick="showPsw(psw, pswIcon, eye='{{url_for('static',filename='images/eye.png')}}',eyeoff='{{url_for('static',filename='images/eye-off.png')}}')">
+                    <img src="{{url_for('static',filename='images/eye.png')}}" alt="hide-password"
+                         id="show-psw-icon">
+                </button>
+            </div>
+
+            <div class="main__form-field flex-row">
+                <div class="flex-row">
+                    <input type="checkbox" id="remember-user">
+                    <label for="remember-user">მომხმარებლის დამახსოვრება</label>
+                </div>
+                <a href="{{ url_for('user_blueprint.reset_password') }}">პაროლის აღდგენა</a>
+            </div>
+
+            {{ render_field(form.submit) }}
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+            <ul class=flashes>
+                {% for message in messages %}
+                <span>{{message}}</span>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% endwith %}
+        </form>
+    </div>
+</main>
+{% endblock content %}
+
