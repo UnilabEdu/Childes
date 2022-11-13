@@ -31,6 +31,9 @@ def child(child_name):
 def child_files(child_name, file):
     child_all_files = File.query.filter(File.file_name.like(f'%{child_name}%')).all()
     cha_filename = File.query.filter(File.file_name.like(f'%{file}%')).first()
+    if not cha_filename:
+        flash('არ არსებობს ეს ფაილი')
+        return redirect(url_for('main_blueprint.index'))
     next_files = File.query.filter(File.file_name.like(f'%{child_name}%')).offset(cha_filename.id).limit(5).all()
 
     if not child_all_files or not cha_filename:
@@ -38,7 +41,11 @@ def child_files(child_name, file):
         return redirect(url_for('main_blueprint.index'))
 
     cha_file_dir = os.path.join(UPLOADS_FOLDER, 'cha', child_name.upper())
-    with open(os.path.join(cha_file_dir, file), 'r') as f:
+    cha_file_path = os.path.join(cha_file_dir, file)
+    if not os.path.exists(cha_file_path):
+        flash('არასწორი მოთხოვნა, სცადეთ თავიდან!')
+        return redirect(url_for('main_blueprint.index'))
+    with open(cha_file_path, 'r') as f:
         lines = f.readlines()
 
         file_head_data ={'head': [], 'ID': []}
