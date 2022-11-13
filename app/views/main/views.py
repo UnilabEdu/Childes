@@ -34,7 +34,13 @@ def child_files(child_name, file):
     if not cha_filename:
         flash('არ არსებობს ეს ფაილი')
         return redirect(url_for('main_blueprint.index'))
-    next_files = File.query.filter(File.file_name.like(f'%{child_name}%')).offset(cha_filename.id).limit(5).all()
+
+    next_five_files = File.query.filter(File.file_name.like(f'%{child_name}%'), File.file_name != file).offset(0).limit(5).all()
+
+    if len(next_five_files) < 5:
+        print(len(next_five_files))
+        next_five_files = File.query.filter(File.file_name.like(f'%{child_name}%'), File.file_name != file).offset(0).limit(5 - len(next_five_files)).all()
+        
 
     if not child_all_files or not cha_filename:
         flash('არასწორი მოთხოვნა, სცადეთ თავიდან')
@@ -74,7 +80,7 @@ def child_files(child_name, file):
                            file_main_data=file_main_data,
                            date=date,
                            child_files=child_all_files,
-                           first_five_file=next_files)
+                           first_five_file=next_five_files)
 
 
 @main_blueprint.route('/cha/<string:file_name>')
