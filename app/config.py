@@ -5,7 +5,7 @@ BASEDIR = os.path.abspath(os.path.dirname(__file__))
 
 STATIC_FODLER = os.path.join(BASEDIR, 'static')
 UPLOADS_FOLDER = os.path.join(BASEDIR, 'uploads')
-main_statics_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static', 'front')
+main_statics_folder = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'static', 'css')
 TEMPLATE_FOLDER = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'templates')
 ADMIN_PANEL_TEMPLATES = os.path.join(TEMPLATE_FOLDER, 'admin_panel')
 

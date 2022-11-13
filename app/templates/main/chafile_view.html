@@ -28,11 +28,11 @@
                         <td class="flex-row">{{one_file.file_name.strip(child_name).strip('.cha')}}</td>
                         <td class="flex-row">ქართული</td>
                         <td class="flex-row">video</td>
-                        <td class="flex-row">video</td>
                         <td class="flex-row">{{date}}</td>
-                        <td class="flex-row">long</td>
-                        <td class="flex-row">toyplay</td>
-                        <td class="flex-row">biling</td>
+                        <td class="flex-row">-</td>
+                        <td class="flex-row">-</td>
+                        <td class="flex-row">-</td>
+                        <td class="flex-row">-</td>
                     </tr>
                 </table>
             </div>
@@ -88,7 +88,6 @@
                 <li>
                     <span class="list-number">{{loop.index}}</span>
                     <span style="margin-left:15px;">{{chat[0]}}</span> {{chat[1]}}
-                    <img src="{{url_for('static',filename='images/play.png')}}" alt="play-btn">
                 </li>
                 {% endif %}
                 {% endfor %}
