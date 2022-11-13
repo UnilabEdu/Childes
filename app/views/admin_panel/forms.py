@@ -12,7 +12,7 @@ class UploadForm(FlaskForm):
                                      , "class": "form-control yt-link",},
                           validators=[DataRequired()],
                           )
-    submit = SubmitField('ატვირთვა', render_kw={"class": "btn btn-outline-success"})
+    submit = SubmitField('ატვირთვა', render_kw={"class": "btn btn-outline-success", 'style': 'display:flex'})
     
     def validate_yt_link(self, embed_yt_link):
         if 'https://www.youtube.com/watch?v=' not in embed_yt_link.data:
