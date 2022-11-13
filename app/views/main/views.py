@@ -35,11 +35,11 @@ def child_files(child_name, file):
         flash('არ არსებობს ეს ფაილი')
         return redirect(url_for('main_blueprint.index'))
 
-    next_five_files = File.query.filter(File.file_name.like(f'%{child_name}%'), File.file_name != file).offset(0).limit(5).all()
-
+    next_five_files = File.query.filter(File.file_name.like(f'%{child_name}%')).offset(cha_filename.id).limit(5).all()
     if len(next_five_files) < 5:
-        print(len(next_five_files))
-        next_five_files = File.query.filter(File.file_name.like(f'%{child_name}%'), File.file_name != file).offset(0).limit(5 - len(next_five_files)).all()
+        next_five_files += File.query.filter(File.file_name.like(f'%{child_name}%'), File.file_name != file).limit(5 - len(next_five_files)).all()
+        print(next_five_files)
+        next_five_files = set(next_five_files)
         
 
     if not child_all_files or not cha_filename:
