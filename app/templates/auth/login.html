@@ -35,9 +35,9 @@
             {{ render_field(form.submit) }}
             {% with messages = get_flashed_messages() %}
             {% if messages %}
-            <ul class=flashes>
+            <ul class="flashes">
                 {% for message in messages %}
-                <span>{{message}}</span>
+                <span class="input-error" style="display: block">* {{message}}</span>
                 {% endfor %}
             </ul>
             {% endif %}
