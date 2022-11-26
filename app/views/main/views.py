@@ -48,6 +48,7 @@ def child_files(child_name, file):
 
     cha_file_dir = os.path.join(UPLOADS_FOLDER, 'cha', child_name.upper())
     cha_file_path = os.path.join(cha_file_dir, file)
+    print(cha_file_path, cha_file_dir)
     if not os.path.exists(cha_file_path):
         flash('არასწორი მოთხოვნა, სცადეთ თავიდან!')
         return redirect(url_for('main_blueprint.index'))

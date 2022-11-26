@@ -51,7 +51,11 @@
                     {% for id in file_head_data['ID'] %}
                     <tr>
                         <td class="flex-row">{{id[2]}}</td>
+                        {% if loop.index != 1%}
                         <td class="flex-row">{{id[7]}}</td>
+                        {% else %}
+                        <td class="flex-row">{{child_name}}</td>
+                        {% endif %}
                         <td class="flex-row">-</td>
                         <td class="flex-row">{{id[0]}}</td>
                         <td class="flex-row">{{id[3]}}</td>
