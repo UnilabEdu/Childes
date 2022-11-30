@@ -22,3 +22,22 @@
     color: red;
 
 }
+
+.cha-file-container {
+    display: grid;
+    grid-template-rows: 450px auto;
+}
+
+.aside.files {
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    max-height: 450px;
+}
+
+.aside.video {
+    margin-top: 7px;
+    grid-row-start: 2;
+    grid-column-start: 1;
+    grid-column-end: 3;
+}
