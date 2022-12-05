@@ -26,7 +26,7 @@ def login():
             login_user(user, form.remember.data)
             return redirect(request.args.get('next') or url_for('main_blueprint.index'))
         else:
-            flash('არასწორი მომხმარებელი ან პაროლი')
+            flash('არასწორი ელ-ფოსტა ან პაროლი')
             return redirect(url_for('user_blueprint.login'))
     return render_template('auth/login.html', form=form)
 
@@ -44,10 +44,10 @@ def reset_password():
             password_reset(body='body',email=[user.email],token=token,user_email=user.email)
 
         else:
-            flash('მეილი არ არსებობს,გთხოვთ შეიყვანოთ სწორი მეილი')
+            flash('ელ-ფოსტა არასწორია, გთხოვთ მიუთითოთ სწორი მისამართი.')
             return redirect(url_for('user_blueprint.reset_password'))
 
-        flash('თქვენი პაროლის შეცვლის ბმული გაიგზავნა თქვენს ელ.ფოსტაზე')
+        flash('თქვენი პაროლის შეცვლის ბმული გაიგზავნა თქვენს ელ-ფოსტაზე.')
         return redirect(url_for('user_blueprint.login'))
 
     return render_template('auth/forgot_password.html', form=form)
@@ -69,7 +69,6 @@ def resetting_password(token):
         user.password = form.new_password.data
         db.session.commit()
         flash('თქვენი პაროლი წარმატებთ შეიცვალა.')
-        print(token)
         return redirect(url_for('main_blueprint.index'))
 
     return render_template('auth/reset_password.html',form=form)
