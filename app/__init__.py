@@ -1,6 +1,6 @@
 from flask import Flask, flash, url_for, redirect
 from app.extensions import db, migrate, login_manager, csrf, admin, mail
-from app.views.admin_panel.views import File_View, UserView, LogoutView, LoginView, FilesView, AboutPageView, MainPageView
+from app.views.admin_panel.views import File_View, UserView, LogoutView, LoginView, FilesView, AboutPageView, MainPageView, DashboardView
 from app.views.main.models import File, AboutPage
 from app.views.auth.models import Role, User
 from app.views.main.views import main_blueprint
@@ -8,7 +8,6 @@ from app.views.admin_panel.uploads_view import admin_upload_bp
 from app.views.auth.views import user_blueprint
 from app.config import Config, DevConfig, ProdConfig
 from app.config import STATIC_FODLER as static_folder, BASEDIR
-import os
 
 BLUEPRINTS = [main_blueprint, user_blueprint, admin_upload_bp]
 
@@ -53,14 +52,14 @@ def register_errorhandlers(app):
 
 
 def register_admin(app):
-    admin.add_view(UserView(User, db.session, name='მომხმარებელი', endpoint='users',))
+    admin.add_view(UserView(User, db.session, name='მომხმარებლები', endpoint='users',))
     # add log out view to admin panel
     # files upload
     admin.add_view(FilesView(User, db.session, name='ფაილების ატვირთვა', endpoint='files'))
     admin.add_view(File_View(File, db.session, name='ფაილების მოდელები'))
 
     # about page view
-    admin.add_view(AboutPageView(AboutPage, db.session, name='ჩვენს შესახებ', endpoint='about'))
+    admin.add_view(AboutPageView(AboutPage, db.session, name='ჩვენ შესახებ', endpoint='about'))
     admin.add_view(LoginView(Role, db.session, name='შესვლა'))
     # go to index page 
     admin.add_view(MainPageView(User, db.session, name='მთავარი გვერდი'))
