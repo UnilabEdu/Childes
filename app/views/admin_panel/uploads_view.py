@@ -18,37 +18,38 @@ def upload_file():
     form = UploadForm()
     if form.validate_on_submit():
         try:
-            f = form.file.data
+            file = form.file.data
             yt_link = form.yt_link.data
-            yt_link_id = yt_link.split('=')[1].split('&')[0]
-            embed_yt_link = "https://www.youtube.com/embed/" + str(yt_link_id)
-            print(embed_yt_link)
-            print(f)
-            # if file already exists in database redirect file upload page
-            check_file = File.already_exists(f.filename) or File.already_exists_yt(embed_yt_link)
-            print(File.already_exists(f.filename), File.already_exists_yt(embed_yt_link))
-            if not check_file:
-                file_name = f.filename
-                f.filename = ''.join([letter for letter in f.filename if not letter.isnumeric()])
-                print(f.filename)
-                child_file_name = f.filename.replace('.cha', '')
+            yt_link_id = None
+            embed_yt_link = None
 
-                # create folder for MAT if does not exists in UPLOADS_FOLDER /cha/MAT files
-                # then save file in MAT folder
-                child_folder = os.path.join(UPLOADS_FOLDER, 'cha', f'{child_file_name}')
-                print(os.path.exists(child_folder), child_folder)
-                if not os.path.exists(child_folder):
-                    os.makedirs(child_folder)
-                filename = secure_filename(file_name)
-                f.save(os.path.join(child_folder, filename))
-                file_model = File(file_name=filename, embed_yt_link=embed_yt_link, yt_link_id=yt_link_id)
-                file_model.create()
+            if yt_link:
+                yt_link_id = yt_link.split('=')[1].split('&')[0]
+                embed_yt_link = "https://www.youtube.com/embed/" + str(yt_link_id)
 
-                flash('ფაილი აიტვირთა წარმატებით!', 'success')
+            # If file already exists in database redirect file upload page
+            file_exists = File.already_exists(file.filename)
+            if file_exists:
+                flash('ეს ფაილი უკვე არსებობს')
                 return redirect(url_for('admin_upload_bp.upload_file'))
-            else:
-                flash('ეს ფაილი ან იუთიბის მისამართი უკვე არსებობს')
-                return redirect(url_for('admin_upload_bp.upload_file'))
+            
+            filename = file.filename
+            folder_name = ''.join([letter for letter in secure_filename(file.filename) if not letter.isnumeric()]).replace('.cha', '')
+            child_folder = os.path.join(UPLOADS_FOLDER, 'cha', f'{folder_name}')
+
+            print(os.path.exists(child_folder), child_folder)
+            # Create folder if it does not exist
+            if not os.path.exists(child_folder):
+                os.makedirs(child_folder)
+
+            filename = secure_filename(filename)
+            file.save(os.path.join(child_folder, filename))
+            file_model = File(file_name=filename, embed_yt_link=embed_yt_link, yt_link_id=yt_link_id)
+            file_model.create()
+
+            flash('ფაილი აიტვირთა წარმატებით!', 'success')
+            return redirect(url_for('admin_upload_bp.upload_file'))
+
         except Exception as e:
             flash('File not saved', 'danger')
             print(e)

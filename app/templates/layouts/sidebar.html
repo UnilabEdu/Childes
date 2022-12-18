@@ -51,8 +51,10 @@
         <div class="aside__wrapper">
             <div class="aside__video">
                 <div class="aside__video-main">
+                    {% if one_file.embed_yt_link %}
                     <iframe src="{{one_file.embed_yt_link}}" width=100% height=100% style="overflow:hidden;"
                             scrolling="no" frameborder="none"></iframe>
+                    {% endif %}
                 </div>
                 <div class="aside__thumbnail-videos">
                     <ul class="flex-row">

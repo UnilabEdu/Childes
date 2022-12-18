@@ -6,9 +6,7 @@ from flask_login import current_user
 
 class SecureModelView(ModelView):
     def is_accessible(self):
-        if current_user.is_authenticated:
-            return current_user.is_admin()
-        return False
+        return current_user.is_authenticated
 
     def inaccessible_callback(self, name, **kwargs):
         return redirect(url_for('user_blueprint.login'))
@@ -20,6 +18,9 @@ class DashboardView(AdminIndexView):
 
 
 class UserView(SecureModelView):
+
+    def is_accessible(self):
+        return current_user.is_authenticated and current_user.is_admin()
 
     column_list = ["first_name", "last_name", "email", "roles"]
     form_columns = ("roles", "first_name", "last_name", "email", "password")
@@ -69,9 +70,7 @@ class LoginView(ModelView):
     
 class FilesView(ModelView):
     def is_accessible(self):
-        if current_user.is_authenticated:
-            return current_user.is_admin()
-        return False
+        return current_user.is_authenticated
     
     def _handle_view(self, name, **kwargs):
         return redirect(url_for('admin_upload_bp.upload_file'))

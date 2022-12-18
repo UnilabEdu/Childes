@@ -6,8 +6,8 @@ class File(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     file_name = db.Column(db.String(80), unique=True, nullable=False)
-    embed_yt_link = db.Column(db.String(80), unique=True, nullable=False)
-    yt_link_id = db.Column(db.String(80), unique=True, nullable=False)
+    embed_yt_link = db.Column(db.String(80), unique=True, nullable=True)
+    yt_link_id = db.Column(db.String(80), unique=True, nullable=True)
 
     def create(self, commit=True, **kwargs):
         for key, value in kwargs.items():
