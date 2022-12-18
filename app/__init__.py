@@ -8,9 +8,10 @@ from app.views.admin_panel.uploads_view import admin_upload_bp
 from app.views.auth.views import user_blueprint
 from app.config import Config, DevConfig, ProdConfig
 from app.config import STATIC_FODLER as static_folder, BASEDIR
+from app.commands import init_db, populate_db
 
 BLUEPRINTS = [main_blueprint, user_blueprint, admin_upload_bp]
-
+COMMANDS = [init_db, populate_db]
 
 # Create Flask application
 def create_app():
@@ -20,6 +21,7 @@ def create_app():
     register_blueprints(app)
     register_admin(app)
     register_errorhandlers(app)
+    register_commands(app)
     return app
 
 
@@ -37,6 +39,11 @@ def register_extensions(app):
 def register_blueprints(application):
     for bp in BLUEPRINTS:
         application.register_blueprint(bp)
+
+
+def register_commands(app):
+    for command in COMMANDS:
+        app.cli.add_command(command)
 
 
 def register_errorhandlers(app):
