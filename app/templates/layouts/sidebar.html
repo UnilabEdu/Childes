@@ -26,10 +26,16 @@
                     <div class="list-wrapper">
                         {% for file in child_files %}
                         <li>
-                            <a href="{{url_for('main_blueprint.child_files', child_name=child_name, file=file)}}">{{file.strip(child_name)}}</a>
+                            {%  if file.file_name in request.path %}
+                                {% set active_class = "active" %}
+                            {% endif %}
+                            <a class="{{ active_class }}"
+                               href="{{url_for('main_blueprint.child_files', child_name=child_name, file=file)}}">{{file.strip(child_name)}}</a>
+
                             <a href="{{url_for('main_blueprint.file', file_name=file)}}" target="_blank"><img
                                     src="{{url_for('static',filename='images/text.png')}}"
                                     alt="document-icon"></a>
+
                             <a href="{{one_file.embed_yt_link}}" target="_blank"><img
                                     src="{{url_for('static',filename='images/video.png')}}"
                                     alt="video-icon"></a>
