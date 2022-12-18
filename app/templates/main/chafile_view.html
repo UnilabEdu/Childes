@@ -1,104 +1,105 @@
 {% extends "layouts/main.html" %}
 {% block content %}
-<!-- main -->
-<main class="main">
-    <div class="main__wrapper logged-main">
-        <div class="table-wrapper">
-            <div class="transcript__table">
-                <h3>transcript:</h3>
-                <table>
-                    <tr>
-                        <th class="flex-row">chat</th>
-                        <th class="flex-row">path</th>
-                        <th class="flex-row">filename</th>
-                        <th class="flex-row">languages</th>
-                        <th class="flex-row">media</th>
-                        <th class="flex-row">date</th>
-                        <th class="flex-row">pid</th>
-                        <th class="flex-row">design type</th>
-                        <th class="flex-row">activity</th>
-                        <th class="flex-row">group type</th>
-                    </tr>
-                    <tr>
-                        <td class="flex-row"><a class="chat"
-                                                href="{{url_for('main_blueprint.file', file_name=one_file.file_name)}}"
-                                                target="_blank">{{one_file.file_name.replace(child_name,
-                            '').replace('.cha', '')}}</a>
-                        </td>
-                        <td class="flex-row">{{ request.path.replace('.cha', '').replace('/child', '') }}</td>
-                        <td class="flex-row">{{one_file.file_name.replace('.cha', '')}}</td>
-                        <td class="flex-row">ქართული</td>
-                        <td class="flex-row">video</td>
-                        <td class="flex-row">{{date}}</td>
-                        <td class="flex-row">-</td>
-                        <td class="flex-row">-</td>
-                        <td class="flex-row">-</td>
-                        <td class="flex-row">-</td>
-                    </tr>
-                </table>
+    <!-- main -->
+    <main class="main">
+        <div class="main__wrapper logged-main">
+            <div class="table-wrapper">
+                <div class="transcript__table">
+                    <h3>transcript:</h3>
+                    <table>
+                        <tr>
+                            <th class="flex-row">chat</th>
+                            <th class="flex-row">path</th>
+                            <th class="flex-row">filename</th>
+                            <th class="flex-row">languages</th>
+                            <th class="flex-row">media</th>
+                            <th class="flex-row">date</th>
+                            <th class="flex-row">pid</th>
+                            <th class="flex-row">design type</th>
+                            <th class="flex-row">activity</th>
+                            <th class="flex-row">group type</th>
+                        </tr>
+                        <tr>
+                            <td class="flex-row"><a class="chat"
+                                                    href="{{ url_for('main_blueprint.file', file_name=one_file.file_name) }}"
+                                                    target="_blank">{{ one_file.file_name.replace(child_name,
+                            '').replace('.cha', '') }}</a>
+                            </td>
+                            <td class="flex-row">{{ request.path.replace('.cha', '').replace('/child', '') }}</td>
+                            <td class="flex-row">{{ one_file.file_name.replace('.cha', '') }}</td>
+                            <td class="flex-row">kat</td>
+                            <td class="flex-row">video</td>
+                            <td class="flex-row">{{ date }}</td>
+                            <td class="flex-row">-</td>
+                            <td class="flex-row">-</td>
+                            <td class="flex-row">-</td>
+                            <td class="flex-row">-</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="participants__table">
+                    <h3>participants:</h3>
+                    <table>
+                        <tr>
+                            <th class="flex-row">participants</th>
+                            <th class="flex-row">role</th>
+                            <th class="flex-row">name</th>
+                            <th class="flex-row">language</th>
+                            <th class="flex-row">age</th>
+                            <th class="flex-row">sex</th>
+                        </tr>
+                        {% for id in file_head_data['ID'] %}
+                            <tr>
+                                <td class="flex-row">{{ id[2] }}</td>
+                                <td class="flex-row">{{ id[7] }}</td>
+                                {% if loop.index == 1 %}
+                                    <td class="flex-row">{{ child_name }}</td>
+                                {% else %}
+                                    <td class="flex-row">-</td>
+                                {% endif %}
+                                <td class="flex-row">{{ id[0] }}</td>
+                                <td class="flex-row">{{ id[3] }}</td>
+                                <td class="flex-row">{{ id[4] }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
             </div>
-            <div class="participants__table">
-                <h3>participants:</h3>
-                <table>
-                    <tr>
-                        <th class="flex-row">participants</th>
-                        <th class="flex-row">role</th>
-                        <th class="flex-row">name</th>
-                        <th class="flex-row">language</th>
-                        <th class="flex-row">age</th>
-                        <th class="flex-row">sex</th>
-                    </tr>
-                    {% for id in file_head_data['ID'] %}
-                    <tr>
-                        <td class="flex-row">{{id[2]}}</td>
-                        <td class="flex-row">{{id[7]}}</td>
-                        {% if loop.index == 1%}
-                        <td class="flex-row">{{child_name}}</td>
+            <div class="transcript">
+                <ul>
+                    {% for head in file_head_data['head'] %}
+                        {% if head|length == 1 %}
+                            <li>{{ head[0] }}</li>
                         {% else %}
-                        <td class="flex-row">-</td>
+                            <li><span>{{ head[0] }}</span> {{ head[1] }}</li>
                         {% endif %}
-                        <td class="flex-row">{{id[0]}}</td>
-                        <td class="flex-row">{{id[3]}}</td>
-                        <td class="flex-row">{{id[4]}}</td>
-                    </tr>
                     {% endfor %}
-                </table>
+                </ul>
+            </div>
+            <div class="audios-list">
+                <ol>
+                    {% for chat in file_main_data['main'] %}
+                        {% if '' == chat[0] %}
+                            <li>
+                                <span class="list-number"></span>
+                                <div>{{ chat[1] }}</div>
+                            </li>
+                        {% elif 'com:' == chat[0] %}
+                            <li>
+                                <span class="list-number">{{ loop.index }}</span>
+                                <span>COM:</span>
+                                <div>{{ chat[1] }}</div>
+                            </li>
+                        {% else %}
+                            <li>
+                                <span class="list-number">{{ loop.index }}</span>
+                                <span>{{ chat[0] }}</span>
+                                <div>{{ chat[1] }}</div>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ol>
             </div>
         </div>
-        <div class="transcript">
-            <ul>
-                {% for head in file_head_data['head'] %}
-                {% if head|length == 1 %}
-                <li><span>{{head[0]}}</span></li>
-                {% else %}
-                <li><span>{{head[0]}}</span> {{head[1]}}</li>
-                {% endif %}
-                {% endfor %}
-            </ul>
-        </div>
-        <div class="audios-list">
-            <ol>
-                {% for chat in file_main_data['main'] %}
-                {% if '' == chat[0] %}
-                <li>
-                    <span class="list-number"></span>
-                    {{chat[1]}}
-                </li>
-                {% elif 'com:' == chat[0] %}
-                <li>
-                    <span class="list-number">{{loop.index}}</span>
-                    <span style="margin-left:15px;">COM:</span>
-                    {{chat[1]}}
-                </li>
-                {% else %}
-                <li>
-                    <span class="list-number">{{loop.index}}</span>
-                    <span style="margin-left:15px;">{{chat[0]}}</span> {{chat[1]}}
-                </li>
-                {% endif %}
-                {% endfor %}
-            </ol>
-        </div>
-    </div>
-</main>
+    </main>
 {% endblock %}

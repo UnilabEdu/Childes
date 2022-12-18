@@ -74,14 +74,14 @@
     margin-top: 2rem;
     padding-left: 2rem;
 
-    
+
     li {
       position: relative;
       list-style: none;
       line-height: 1.25rem;
       font-family: $ff-nunitomedium;
       font-weight: 400;
-      
+
       &:nth-child(1),
       &:nth-child(3) {
 
@@ -110,7 +110,7 @@
 
   .audios-list {
     margin-top: 2rem;
-    padding-left: 2.5rem;
+    padding-left: 1.0rem;
 
     ol {
       list-style-type: none;
@@ -130,8 +130,11 @@
     }
 
     li {
+      display: grid;
+      grid-template-columns: auto 15px 31px 6px 830px;
+      align-items: baseline;
       position: relative;
-      margin-top: 1.3rem;
+      margin-top: 1.2rem;
       font-family: $ff-nunitomedium;
       font-weight: 400;
       color: $clr-black;
@@ -142,19 +145,32 @@
       }
 
       .list-number {
+        display: inline-block;
+        width: 88%;
+        height: 29px;
+        text-align: center;
         padding: 3px 4px;
-        position: absolute;
-        left: -1.5rem;
-        top: 50%;
-        transform: translateY(-50%);
         background-color: $clr-white;
         font-size: $fs-m;
         color: $clr-black;
         border-radius: 6px;
+        margin-right: 17px;
+        box-shadow: 3px 1px 4px #e0e0e040;
+        grid-column: 1;
       }
 
       img {
         width: 0.725rem;
+      }
+
+      div {
+        grid-column: 5 / 5;
+        line-height: 22px;
+        height: 100%;
+      }
+
+      span {
+        grid-column: 3 / 3;
       }
     }
 
@@ -171,20 +187,21 @@
 
   &__title {
 
-      a {
+    a {
+      color: $clr-darkgrey;
+
+      &:hover {
+        font-weight: 700;
         color: $clr-darkgrey;
-        
-        &:hover {
-          font-weight: 700;
-          color: $clr-darkgrey;
-        }
       }
+    }
   }
 
 
   .logged-in-ul {
     position: relative;
     border-radius: 6px;
+
     &.video-list {
       min-height: 400px;
       overflow: hidden;
@@ -201,11 +218,6 @@
       a {
         font-family: $ff-nunitomedium;
         color: $clr-green;
-
-        &:hover {
-          font-family: $ff-nunitobold;
-          text-decoration: underline;
-        }
       }
     }
 
