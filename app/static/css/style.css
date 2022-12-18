@@ -59,6 +59,12 @@ img {
   margin: 0 auto;
 }
 
+@media (max-width: 1300px) {
+  .container {
+    width: 98%;
+    min-width: 950px;
+  }
+}
 .wrapper-logged-main, .wrapper-logged, .wrapper {
   display: grid;
   grid-template-columns: 10% 90%;
@@ -516,6 +522,11 @@ img {
 }
 .main .audios-list li span {
   grid-column: 3/3;
+}
+@media (max-width: 1300px) {
+  .main .audios-list li {
+    grid-template-columns: auto 9px 31px 6px 780px;
+  }
 }
 .main .audios-list span {
   font-family: "nunito-bold", sans-serif;
