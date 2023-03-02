@@ -175,7 +175,7 @@ img {
   text-transform: capitalize;
 }
 .main {
-  height: calc(100vh - 100px);
+  min-height: calc(100vh - 100px);
   grid-area: main;
   background-color: #f8f8f8;
   border-radius: 4px;
@@ -488,7 +488,7 @@ img {
 }
 .main .audios-list li {
   display: grid;
-  grid-template-columns: auto 15px 31px 6px 830px;
+  grid-template-columns: auto 15px 31px 6px 1255px;
   align-items: baseline;
   position: relative;
   margin-top: 1.2rem;
