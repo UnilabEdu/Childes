@@ -19,6 +19,10 @@ class Config:
 
 
 class ProdConfig(Config):
+
+    DB_USER = os.environ.get("DB_USER")
+    DB_PASS = os.environ.get("DB_PASS")
+
     """Production Config."""
     FLASK_ADMIN_SWATCH = 'cerulean'
     MAIL_SERVER = 'smtp.mailtrap.io'
@@ -27,7 +31,7 @@ class ProdConfig(Config):
     MAIL_USE_SSL = False
     MAIL_USERNAME = 'b751eb87d05854'
     MAIL_PASSWORD = '5f89c3ea1bb1ef'
-    SQLALCHEMY_DATABASE_URI = f'sqlite:///{os.path.join(BASEDIR, "data.sqlite")}'
+    SQLALCHEMY_DATABASE_URI = f'postgresql://{DB_USER}:{DB_PASS}@217.147.233.21:5432/talkbank'
 
 
 class DevConfig(Config):

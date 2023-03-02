@@ -9,6 +9,7 @@ from app.views.auth.views import user_blueprint
 from app.config import Config, DevConfig, ProdConfig
 from app.config import STATIC_FODLER as static_folder, BASEDIR
 from app.commands import init_db, populate_db
+import os
 
 BLUEPRINTS = [main_blueprint, user_blueprint, admin_upload_bp]
 COMMANDS = [init_db, populate_db]
@@ -75,8 +76,8 @@ def register_admin(app):
 
 
 def set_environment(app):
-    env = 'dev'
-    if env == 'prod':
-        app.config.from_object(ProdConfig)
-    else:
+    env = os.environ.get("FLASK_ENV")
+    if env == 'development':
         app.config.from_object(DevConfig)
+    else:
+        app.config.from_object(ProdConfig)
