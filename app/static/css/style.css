@@ -55,16 +55,17 @@ img {
 }
 
 .container {
-  width: 1300px;
+  max-width: 1920px;
+  width: 99%;
   margin: 0 auto;
 }
 
-@media (max-width: 1300px) {
+/* @media (max-width: 1300px) {
   .container {
     width: 98%;
     min-width: 950px;
   }
-}
+} */
 .wrapper-logged-main, .wrapper-logged, .wrapper {
   display: grid;
   grid-template-columns: 10% 90%;
@@ -173,8 +174,8 @@ img {
   color: #404040;
   text-transform: capitalize;
 }
-
 .main {
+  height: calc(100vh - 100px);
   grid-area: main;
   background-color: #f8f8f8;
   border-radius: 4px;
