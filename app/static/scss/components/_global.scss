@@ -132,3 +132,17 @@
     }
   }
 }
+
+.footer {
+  display: flex;
+  align-items: center;
+  grid-column: 1/3;
+  background-color: #eef1ff;
+  padding: 1.2rem 1rem;
+  border-radius: 4px 4px 0 0;
+
+  .attribution {
+    font-family: $ff-firaregular;
+    margin-left: 15%;
+  }
+}

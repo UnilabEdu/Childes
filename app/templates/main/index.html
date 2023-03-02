@@ -1,37 +1,48 @@
 {% extends "layouts/main.html" %}
 {% block content %}
-<main class="main">
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <div class="alert alert-danger" role="alert" class="alert-message"
-         style="width:30%; margin-left:35%;margin-top:3%;">
-        <ul class=flashes>
-            {% for message in messages %}
-            <li style="color:red;">{{ message }}</li>
-            {% endfor %}
-        </ul>
-    </div>
-    {% endif %}
-    {% endwith %}
+    <main class="main">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <div class="alert alert-danger" role="alert" class="alert-message"
+                     style="width:30%; margin-left:35%;margin-top:3%;">
+                    <ul class=flashes>
+                        {% for message in messages %}
+                            <li style="color:red;">{{ message }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
+        {% endwith %}
 
-    <div class="main__wrapper">
-        <h2>TalkBank: <span>CHILDES</span></h2>
-        <section class="main__goal" id="goal-section">
-            <h3>საიტის მიზანი და დანიშნულება</h3>
-            <p>{{about['goals'] | safe}}
-            <hr>
-            </p>
-        </section>
-        <section class="main__instructions" id="instructions-section">
-            <h3>საიტის გამოყენების ინსტრუქცია</h3>
-            <p>{{about['instruction'] | safe }}
-            <hr>
-            </p>
-        </section>
-        <div class="main__creators">
-            <h3>პროექტზე მუშაობდნენ</h3>
-                {{about['who_worked'] | safe }}
+        <div class="main__wrapper">
+            <h2>TalkBank: <span>CHILDES</span></h2>
+            <section class="main__goal" id="goal-section">
+                <h3>საიტის მიზანი და დანიშნულება</h3>
+                <p>{{ about['goals'] | safe }}
+                <hr>
+                </p>
+            </section>
+            <section class="main__instructions" id="instructions-section">
+                <h3>საიტის გამოყენების ინსტრუქცია</h3>
+                <p>{{ about['instruction'] | safe }}
+                <hr>
+                </p>
+            </section>
+            <div class="main__creators">
+                <h3>პროექტზე მუშაობდნენ</h3>
+                {{ about['who_worked'] | safe }}
+            </div>
         </div>
-    </div>
-</main>
+    </main>
+
+    <footer class="footer">
+        <div class="logos">
+            <img src="{{ url_for('static', filename='images/iliauni-logo-geo.png') }}" style="width: 64px;"/>
+            <img src="{{ url_for('static', filename='images/fondi-2.png') }}" style="width: 192px;"/>
+            <img src="{{ url_for('static', filename='images/logo_geo.png') }}" style="width: 128px;">
+        </div>
+        <div class="attribution">
+            © ბავშვის განვითარების ინსტიტუტი, ილიას სახელმწიფო უნივერსიტეტი, 2022
+        </div>
+    </footer>
 {% endblock %}

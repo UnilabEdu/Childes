@@ -238,6 +238,19 @@ img {
   margin-left: 6px;
 }
 
+.footer {
+  display: flex;
+  align-items: center;
+  grid-column: 1/3;
+  background-color: #eef1ff;
+  padding: 1.2rem 1rem;
+  border-radius: 4px 4px 0 0;
+}
+.footer .attribution {
+  font-family: "fira-regular", sans;
+  margin-left: 15%;
+}
+
 .main h2 {
   font-family: "nunito-bold", sans-serif;
   font-size: 1.875rem;
@@ -487,7 +500,7 @@ img {
 }
 .main .audios-list li {
   display: grid;
-  grid-template-columns: auto 15px 31px 6px 1255px;
+  grid-template-columns: auto 15px 31px 6px 1225px;
   align-items: baseline;
   position: relative;
   margin-top: 1.2rem;
