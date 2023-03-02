@@ -95,10 +95,7 @@ def file(file_name):
         return redirect(url_for('main_blueprint.index'))
 
     # stripping file name for having only child name
-    ten_number = [i for i in range(0, 10)]
-    for num in ten_number:
-        file_name = file_name.replace(str(num), '')
-    child_file_name = file_name.replace('.cha', '')
+    child_file_name = file_name[0:3]
 
     cha_file_in_mat_folder = os.path.join(UPLOADS_FOLDER, 'cha', f'{child_file_name}')
 
@@ -107,7 +104,7 @@ def file(file_name):
     # read with line by line
     file_data = ''
     if not os.path.exists(file):
-        flash('მოხდა სეცდომა ფაილის გახსნასთან დაკავშირებით!')
+        flash('მოხდა შეცდომა ფაილის გახსნასთან დაკავშირებით!')
         return redirect(url_for('main_blueprint.index'))
     with open(file, 'r') as f:
         lines = f.readlines()

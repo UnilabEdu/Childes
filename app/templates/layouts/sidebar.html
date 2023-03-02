@@ -30,7 +30,7 @@
                                 {% set active_class = "active" %}
                             {% endif %}
                             <a class="{{ active_class }}"
-                               href="{{url_for('main_blueprint.child_files', child_name=child_name, file=file)}}">{{file.strip(child_name)}}</a>
+                               href="{{url_for('main_blueprint.child_files', child_name=child_name, file=file)}}"> {{ file.file_name[3:-4] }}</a>
 
                             <a href="{{url_for('main_blueprint.file', file_name=file)}}" target="_blank"><img
                                     src="{{url_for('static',filename='images/text.png')}}"

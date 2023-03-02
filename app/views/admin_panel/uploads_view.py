@@ -34,7 +34,7 @@ def upload_file():
                 return redirect(url_for('admin_upload_bp.upload_file'))
             
             filename = file.filename
-            folder_name = ''.join([letter for letter in secure_filename(file.filename) if not letter.isnumeric()]).replace('.cha', '')
+            folder_name = secure_filename(file.filename)[0:3]
             child_folder = os.path.join(UPLOADS_FOLDER, 'cha', f'{folder_name}')
 
             print(os.path.exists(child_folder), child_folder)
