@@ -60,12 +60,6 @@ img {
   margin: 0 auto;
 }
 
-/* @media (max-width: 1300px) {
-  .container {
-    width: 98%;
-    min-width: 950px;
-  }
-} */
 .wrapper-logged-main, .wrapper-logged, .wrapper {
   display: grid;
   grid-template-columns: 10% 90%;
@@ -174,6 +168,7 @@ img {
   color: #404040;
   text-transform: capitalize;
 }
+
 .main {
   min-height: calc(100vh - 100px);
   grid-area: main;
@@ -264,6 +259,10 @@ img {
 .main__goal hr, .main__instructions hr {
   opacity: 0;
   margin: 1rem 0;
+}
+.main__creators {
+  margin: 50px 0 150px;
+  font-family: "fira-regular", sans;
 }
 .main__creators h3 {
   font-size: 1.125rem;
@@ -524,7 +523,12 @@ img {
 .main .audios-list li span {
   grid-column: 3/3;
 }
-@media (max-width: 1300px) {
+@media (max-width: 1680px) {
+  .main .audios-list li {
+    grid-template-columns: auto 15px 31px 6px 1050px;
+  }
+}
+@media (max-width: 1366px) {
   .main .audios-list li {
     grid-template-columns: auto 9px 31px 6px 780px;
   }

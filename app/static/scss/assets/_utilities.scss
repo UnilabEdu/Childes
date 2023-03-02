@@ -1,15 +1,17 @@
 .container {
   // width: min(100% - 1rem, 1300px);
-  width: min(1300px, 1300px);
+  //width: min(1300px, 1300px);
+  max-width: 1920px;
+  width: 99%;
   margin: 0 auto;
 }
 
-@media (max-width: 1300px) {
-  .container {
-    width: 98%;
-    min-width: 950px;
-  }
-}
+//@media (max-width: 1300px) {
+//  .container {
+//    width: 98%;
+//    min-width: 950px;
+//  }
+//}
 
 %wrapper {
   display: grid;

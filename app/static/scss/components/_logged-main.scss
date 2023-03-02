@@ -131,7 +131,7 @@
 
     li {
       display: grid;
-      grid-template-columns: auto 15px 31px 6px 830px;
+      grid-template-columns: auto 15px 31px 6px 1255px;
       align-items: baseline;
       position: relative;
       margin-top: 1.2rem;
@@ -174,7 +174,13 @@
       }
     }
 
-    @media (max-width: 1300px) {
+    @media (max-width: 1680px) {
+      li {
+        grid-template-columns: auto 15px 31px 6px 1050px
+      }
+    }
+
+    @media (max-width: 1366px) {
       li {
         grid-template-columns: auto 9px 31px 6px 780px
       }

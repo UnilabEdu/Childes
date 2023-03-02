@@ -18,21 +18,19 @@
         <h2>TalkBank: <span>CHILDES</span></h2>
         <section class="main__goal" id="goal-section">
             <h3>საიტის მიზანი და დანიშნულება</h3>
-            <p>{{about['goals']}}
+            <p>{{about['goals'] | safe}}
             <hr>
             </p>
         </section>
         <section class="main__instructions" id="instructions-section">
             <h3>საიტის გამოყენების ინსტრუქცია</h3>
-            <p>{{about['instruction']}}
+            <p>{{about['instruction'] | safe }}
             <hr>
             </p>
         </section>
         <div class="main__creators">
             <h3>პროექტზე მუშაობდნენ</h3>
-            <ul>
-                {{about['who_worked']}}
-            </ul>
+                {{about['who_worked'] | safe }}
         </div>
     </div>
 </main>

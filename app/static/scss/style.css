@@ -55,16 +55,11 @@ img {
 }
 
 .container {
-  width: 1300px;
+  max-width: 1920px;
+  width: 99%;
   margin: 0 auto;
 }
 
-@media (max-width: 1300px) {
-  .container {
-    width: 98%;
-    min-width: 950px;
-  }
-}
 .wrapper-logged-main, .wrapper-logged, .wrapper {
   display: grid;
   grid-template-columns: 10% 90%;
@@ -175,6 +170,7 @@ img {
 }
 
 .main {
+  min-height: calc(100vh - 100px);
   grid-area: main;
   background-color: #f8f8f8;
   border-radius: 4px;
@@ -263,6 +259,10 @@ img {
 .main__goal hr, .main__instructions hr {
   opacity: 0;
   margin: 1rem 0;
+}
+.main__creators {
+  margin: 50px 0 150px;
+  font-family: "fira-regular", sans;
 }
 .main__creators h3 {
   font-size: 1.125rem;
@@ -487,7 +487,7 @@ img {
 }
 .main .audios-list li {
   display: grid;
-  grid-template-columns: auto 15px 31px 6px 830px;
+  grid-template-columns: auto 15px 31px 6px 1255px;
   align-items: baseline;
   position: relative;
   margin-top: 1.2rem;
@@ -523,7 +523,12 @@ img {
 .main .audios-list li span {
   grid-column: 3/3;
 }
-@media (max-width: 1300px) {
+@media (max-width: 1680px) {
+  .main .audios-list li {
+    grid-template-columns: auto 15px 31px 6px 1050px;
+  }
+}
+@media (max-width: 1366px) {
   .main .audios-list li {
     grid-template-columns: auto 9px 31px 6px 780px;
   }
